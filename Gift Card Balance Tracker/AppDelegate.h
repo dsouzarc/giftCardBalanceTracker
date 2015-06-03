@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShowGiftCardBalanceViewController.h"
+#import "OneVanillaGiftCard.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

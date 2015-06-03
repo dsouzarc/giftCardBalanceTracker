@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "OneVanillaGiftCard.h"
 
 @interface ShowGiftCardBalanceViewController : ViewController <NSURLConnectionDelegate>
 
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil giftCard:(OneVanillaGiftCard*)giftCard;
 
 @end
