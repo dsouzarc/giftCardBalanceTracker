@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ShowGiftCardBalanceViewController : ViewController <UIWebViewDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+@interface ShowGiftCardBalanceViewController : ViewController <NSURLConnectionDelegate>
+
 
 @end

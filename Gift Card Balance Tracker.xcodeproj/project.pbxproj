@@ -16,6 +16,7 @@
 		94168CD91B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CD81B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m */; };
 		94168CE51B1FAED800DEA70D /* ShowGiftCardBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CE31B1FAED800DEA70D /* ShowGiftCardBalanceViewController.m */; };
 		94168CE61B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */; };
+		94168CE91B1FC2DD00DEA70D /* OneVanillaGiftCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		94168CE21B1FAED800DEA70D /* ShowGiftCardBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowGiftCardBalanceViewController.h; sourceTree = "<group>"; };
 		94168CE31B1FAED800DEA70D /* ShowGiftCardBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowGiftCardBalanceViewController.m; sourceTree = "<group>"; };
 		94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowGiftCardBalanceViewController.xib; sourceTree = "<group>"; };
+		94168CE71B1FC2DD00DEA70D /* OneVanillaGiftCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneVanillaGiftCard.h; sourceTree = "<group>"; };
+		94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneVanillaGiftCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				94168CE21B1FAED800DEA70D /* ShowGiftCardBalanceViewController.h */,
 				94168CE31B1FAED800DEA70D /* ShowGiftCardBalanceViewController.m */,
 				94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */,
+				94168CE71B1FC2DD00DEA70D /* OneVanillaGiftCard.h */,
+				94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */,
 			);
 			path = "Gift Card Balance Tracker";
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				94168CE51B1FAED800DEA70D /* ShowGiftCardBalanceViewController.m in Sources */,
 				94168CC51B1FAE7300DEA70D /* ViewController.m in Sources */,
 				94168CC21B1FAE7300DEA70D /* AppDelegate.m in Sources */,
+				94168CE91B1FC2DD00DEA70D /* OneVanillaGiftCard.m in Sources */,
 				94168CBF1B1FAE7300DEA70D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
