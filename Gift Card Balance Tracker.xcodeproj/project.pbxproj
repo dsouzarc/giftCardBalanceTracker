@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94168CBF1B1FAE7300DEA70D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CBE1B1FAE7300DEA70D /* main.m */; };
+		94168CC21B1FAE7300DEA70D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CC11B1FAE7300DEA70D /* AppDelegate.m */; };
+		94168CC51B1FAE7300DEA70D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CC41B1FAE7300DEA70D /* ViewController.m */; };
+		94168CC81B1FAE7300DEA70D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94168CC61B1FAE7300DEA70D /* Main.storyboard */; };
+		94168CCA1B1FAE7300DEA70D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94168CC91B1FAE7300DEA70D /* Images.xcassets */; };
+		94168CCD1B1FAE7300DEA70D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94168CCB1B1FAE7300DEA70D /* LaunchScreen.xib */; };
+		94168CD91B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CD81B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94168CD31B1FAE7300DEA70D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94168CB11B1FAE7300DEA70D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94168CB81B1FAE7300DEA70D;
+			remoteInfo = "Gift Card Balance Tracker";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		94168CB91B1FAE7300DEA70D /* Gift Card Balance Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gift Card Balance Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94168CBD1B1FAE7300DEA70D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94168CBE1B1FAE7300DEA70D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		94168CC01B1FAE7300DEA70D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		94168CC11B1FAE7300DEA70D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		94168CC31B1FAE7300DEA70D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		94168CC41B1FAE7300DEA70D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		94168CC71B1FAE7300DEA70D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94168CC91B1FAE7300DEA70D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		94168CCC1B1FAE7300DEA70D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		94168CD21B1FAE7300DEA70D /* Gift Card Balance TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gift Card Balance TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94168CD71B1FAE7300DEA70D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94168CD81B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gift_Card_Balance_TrackerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94168CB61B1FAE7300DEA70D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94168CCF1B1FAE7300DEA70D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94168CB01B1FAE7300DEA70D = {
+			isa = PBXGroup;
+			children = (
+				94168CBB1B1FAE7300DEA70D /* Gift Card Balance Tracker */,
+				94168CD51B1FAE7300DEA70D /* Gift Card Balance TrackerTests */,
+				94168CBA1B1FAE7300DEA70D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94168CBA1B1FAE7300DEA70D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94168CB91B1FAE7300DEA70D /* Gift Card Balance Tracker.app */,
+				94168CD21B1FAE7300DEA70D /* Gift Card Balance TrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94168CBB1B1FAE7300DEA70D /* Gift Card Balance Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				94168CC01B1FAE7300DEA70D /* AppDelegate.h */,
+				94168CC11B1FAE7300DEA70D /* AppDelegate.m */,
+				94168CC31B1FAE7300DEA70D /* ViewController.h */,
+				94168CC41B1FAE7300DEA70D /* ViewController.m */,
+				94168CC61B1FAE7300DEA70D /* Main.storyboard */,
+				94168CC91B1FAE7300DEA70D /* Images.xcassets */,
+				94168CCB1B1FAE7300DEA70D /* LaunchScreen.xib */,
+				94168CBC1B1FAE7300DEA70D /* Supporting Files */,
+			);
+			path = "Gift Card Balance Tracker";
+			sourceTree = "<group>";
+		};
+		94168CBC1B1FAE7300DEA70D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94168CBD1B1FAE7300DEA70D /* Info.plist */,
+				94168CBE1B1FAE7300DEA70D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94168CD51B1FAE7300DEA70D /* Gift Card Balance TrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				94168CD81B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m */,
+				94168CD61B1FAE7300DEA70D /* Supporting Files */,
+			);
+			path = "Gift Card Balance TrackerTests";
+			sourceTree = "<group>";
+		};
+		94168CD61B1FAE7300DEA70D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94168CD71B1FAE7300DEA70D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94168CB81B1FAE7300DEA70D /* Gift Card Balance Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94168CDC1B1FAE7300DEA70D /* Build configuration list for PBXNativeTarget "Gift Card Balance Tracker" */;
+			buildPhases = (
+				94168CB51B1FAE7300DEA70D /* Sources */,
+				94168CB61B1FAE7300DEA70D /* Frameworks */,
+				94168CB71B1FAE7300DEA70D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Gift Card Balance Tracker";
+			productName = "Gift Card Balance Tracker";
+			productReference = 94168CB91B1FAE7300DEA70D /* Gift Card Balance Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94168CD11B1FAE7300DEA70D /* Gift Card Balance TrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94168CDF1B1FAE7300DEA70D /* Build configuration list for PBXNativeTarget "Gift Card Balance TrackerTests" */;
+			buildPhases = (
+				94168CCE1B1FAE7300DEA70D /* Sources */,
+				94168CCF1B1FAE7300DEA70D /* Frameworks */,
+				94168CD01B1FAE7300DEA70D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94168CD41B1FAE7300DEA70D /* PBXTargetDependency */,
+			);
+			name = "Gift Card Balance TrackerTests";
+			productName = "Gift Card Balance TrackerTests";
+			productReference = 94168CD21B1FAE7300DEA70D /* Gift Card Balance TrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94168CB11B1FAE7300DEA70D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Ryan D'souza";
+				TargetAttributes = {
+					94168CB81B1FAE7300DEA70D = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					94168CD11B1FAE7300DEA70D = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 94168CB81B1FAE7300DEA70D;
+					};
+				};
+			};
+			buildConfigurationList = 94168CB41B1FAE7300DEA70D /* Build configuration list for PBXProject "Gift Card Balance Tracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94168CB01B1FAE7300DEA70D;
+			productRefGroup = 94168CBA1B1FAE7300DEA70D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94168CB81B1FAE7300DEA70D /* Gift Card Balance Tracker */,
+				94168CD11B1FAE7300DEA70D /* Gift Card Balance TrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94168CB71B1FAE7300DEA70D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94168CC81B1FAE7300DEA70D /* Main.storyboard in Resources */,
+				94168CCD1B1FAE7300DEA70D /* LaunchScreen.xib in Resources */,
+				94168CCA1B1FAE7300DEA70D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94168CD01B1FAE7300DEA70D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94168CB51B1FAE7300DEA70D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94168CC51B1FAE7300DEA70D /* ViewController.m in Sources */,
+				94168CC21B1FAE7300DEA70D /* AppDelegate.m in Sources */,
+				94168CBF1B1FAE7300DEA70D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94168CCE1B1FAE7300DEA70D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94168CD91B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94168CD41B1FAE7300DEA70D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94168CB81B1FAE7300DEA70D /* Gift Card Balance Tracker */;
+			targetProxy = 94168CD31B1FAE7300DEA70D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		94168CC61B1FAE7300DEA70D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94168CC71B1FAE7300DEA70D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		94168CCB1B1FAE7300DEA70D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94168CCC1B1FAE7300DEA70D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		94168CDA1B1FAE7300DEA70D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		94168CDB1B1FAE7300DEA70D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94168CDD1B1FAE7300DEA70D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Gift Card Balance Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		94168CDE1B1FAE7300DEA70D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Gift Card Balance Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		94168CE01B1FAE7300DEA70D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Gift Card Balance TrackerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gift Card Balance Tracker.app/Gift Card Balance Tracker";
+			};
+			name = Debug;
+		};
+		94168CE11B1FAE7300DEA70D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Gift Card Balance TrackerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gift Card Balance Tracker.app/Gift Card Balance Tracker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94168CB41B1FAE7300DEA70D /* Build configuration list for PBXProject "Gift Card Balance Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94168CDA1B1FAE7300DEA70D /* Debug */,
+				94168CDB1B1FAE7300DEA70D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94168CDC1B1FAE7300DEA70D /* Build configuration list for PBXNativeTarget "Gift Card Balance Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94168CDD1B1FAE7300DEA70D /* Debug */,
+				94168CDE1B1FAE7300DEA70D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		94168CDF1B1FAE7300DEA70D /* Build configuration list for PBXNativeTarget "Gift Card Balance TrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94168CE01B1FAE7300DEA70D /* Debug */,
+				94168CE11B1FAE7300DEA70D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 94168CB11B1FAE7300DEA70D /* Project object */;
+}
