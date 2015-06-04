@@ -31,13 +31,6 @@
     [super viewDidLoad];
 
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:[self.giftCard generateBalanceURLRequest] delegate:self];
-    
-    if(conn) {
-        NSLog(@"Successful connection");
-    }
-    else {
-        NSLog(@"Bad connection");
-    }
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
