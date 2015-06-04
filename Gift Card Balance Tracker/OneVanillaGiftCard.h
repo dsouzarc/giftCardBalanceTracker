@@ -17,4 +17,6 @@
 @property (strong, nonatomic) NSString *expirYear;
 @property (strong, nonatomic) NSString *cvvCode;
 
+- (NSURLRequest*) generateBalanceURLRequest;
+
 @end

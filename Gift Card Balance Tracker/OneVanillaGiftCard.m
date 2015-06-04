@@ -9,6 +9,10 @@
 
 #import "OneVanillaGiftCard.h"
 
+static NSString const *LOGIN_URL = @"https://www.onevanilla.com/onevanilla/login.html";
+static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
+
+
 @implementation OneVanillaGiftCard
 
 - (instancetype) initWithEverything:(NSString *)cardNumber expirMonth:(NSString *)expirMonth expirYear:(NSString *)expirYear cvvCode:(NSString *)cvvCode
@@ -39,6 +43,46 @@
                          expirMonth:[aDecoder decodeObjectForKey:@"expirMonth"]
                           expirYear:[aDecoder decodeObjectForKey:@"expirYear"]
                             cvvCode:[aDecoder decodeObjectForKey:@"cvvCode"]];
+}
+
+- (NSURLRequest*) generateBalanceURLRequest
+{
+    NSString *url = @"https://www.onevanilla.com/onevanilla/login.html";
+    
+    NSMutableString *post = [[NSMutableString alloc] init];
+    [post appendString:@"csrfToken="];
+    [post appendString:CSRF_TOKEN];
+    [post appendString:@"&cardNumber="];
+    [post appendString:self.cardNumber];
+    [post appendString:@"&mm="];
+    [post appendString:self.expirMonth];
+    [post appendString:@"&yy="];
+    [post appendString:self.expirYear];
+    [post appendString:@"&cvv="];
+    [post appendString:self.cvvCode];
+    
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"www.onevanilla.com" forHTTPHeaderField:@"Host"];
+    [request setValue:@"keep-alive" forHTTPHeaderField:@"Proxy-Connection"];
+    [request setValue:@"gzip, deflat" forHTTPHeaderField:@"Accept-Encoding"];
+    [request setValue:@"en-us" forHTTPHeaderField:@"Accept-Language"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"Origin" forHTTPHeaderField:@"https://www.onevanilla.com"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    //[request setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12F70 Safari/600.1.4" forHTTPHeaderField:@"User-Agent"];
+    [request setValue:@"https://www.onevanilla.com/onevanilla/" forHTTPHeaderField:@"Referer"];
+    [request setValue:@"DNT" forHTTPHeaderField:@"1"];
+    
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    
+    return request;
 }
 
 @end
