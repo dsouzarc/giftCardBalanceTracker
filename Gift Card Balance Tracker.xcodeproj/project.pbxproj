@@ -17,6 +17,9 @@
 		94168CE61B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */; };
 		94168CE91B1FC2DD00DEA70D /* OneVanillaGiftCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */; };
 		94168CEB1B1FC75000DEA70D /* ShowGiftCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CEA1B1FC75000DEA70D /* ShowGiftCardViewController.m */; };
+		94168CF21B20F89500DEA70D /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CED1B20F89500DEA70D /* TFHpple.m */; };
+		94168CF31B20F89500DEA70D /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CEF1B20F89500DEA70D /* TFHppleElement.m */; };
+		94168CF41B20F89500DEA70D /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CF11B20F89500DEA70D /* XPathQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		94168CE71B1FC2DD00DEA70D /* OneVanillaGiftCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneVanillaGiftCard.h; sourceTree = "<group>"; };
 		94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneVanillaGiftCard.m; sourceTree = "<group>"; };
 		94168CEA1B1FC75000DEA70D /* ShowGiftCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowGiftCardViewController.m; sourceTree = "<group>"; };
+		94168CEC1B20F89500DEA70D /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		94168CED1B20F89500DEA70D /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		94168CEE1B20F89500DEA70D /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		94168CEF1B20F89500DEA70D /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		94168CF01B20F89500DEA70D /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		94168CF11B20F89500DEA70D /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +111,7 @@
 				94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */,
 				94168CE71B1FC2DD00DEA70D /* OneVanillaGiftCard.h */,
 				94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */,
+				94168CF51B20F89C00DEA70D /* HTML Parsing */,
 			);
 			path = "Gift Card Balance Tracker";
 			sourceTree = "<group>";
@@ -130,6 +140,19 @@
 				94168CD71B1FAE7300DEA70D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94168CF51B20F89C00DEA70D /* HTML Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				94168CEC1B20F89500DEA70D /* TFHpple.h */,
+				94168CED1B20F89500DEA70D /* TFHpple.m */,
+				94168CEE1B20F89500DEA70D /* TFHppleElement.h */,
+				94168CEF1B20F89500DEA70D /* TFHppleElement.m */,
+				94168CF01B20F89500DEA70D /* XPathQuery.h */,
+				94168CF11B20F89500DEA70D /* XPathQuery.m */,
+			);
+			name = "HTML Parsing";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +257,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				94168CC51B1FAE7300DEA70D /* ViewController.m in Sources */,
+				94168CF31B20F89500DEA70D /* TFHppleElement.m in Sources */,
+				94168CF41B20F89500DEA70D /* XPathQuery.m in Sources */,
+				94168CF21B20F89500DEA70D /* TFHpple.m in Sources */,
 				94168CC21B1FAE7300DEA70D /* AppDelegate.m in Sources */,
 				94168CEB1B1FC75000DEA70D /* ShowGiftCardViewController.m in Sources */,
 				94168CE91B1FC2DD00DEA70D /* OneVanillaGiftCard.m in Sources */,
