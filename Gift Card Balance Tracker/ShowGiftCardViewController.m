@@ -30,7 +30,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:[self.giftCard generateBalanceURLRequest] delegate:self];
+    //NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:[self.giftCard generateBalanceURLRequest] delegate:self];
+    
+    NSURL *dataPath = [[NSBundle mainBundle] URLForResource:@"Temp" withExtension:@"html"];
+    NSString *stringPath = [dataPath absoluteString]; //this is correct
+    
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:stringPath]];
+
+    NSLog(@"Data: %@", [self.giftCard currentBalance:data]);
+    
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data

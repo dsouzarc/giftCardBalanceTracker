@@ -9,6 +9,8 @@
 #import "AllCardsViewController.h"
 
 @interface AllCardsViewController ()
+- (IBAction)addButton:(id)sender;
+- (IBAction)editButton:(id)sender;
 
 @end
 
@@ -34,4 +36,9 @@
 }
 */
 
+- (IBAction)addButton:(id)sender {
+}
+
+- (IBAction)editButton:(id)sender {
+}
 @end

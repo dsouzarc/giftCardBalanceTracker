@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TFHpple.h"
 
 @interface OneVanillaGiftCard : NSObject <NSCoding>
 
@@ -18,5 +19,7 @@
 @property (strong, nonatomic) NSString *cvvCode;
 
 - (NSURLRequest*) generateBalanceURLRequest;
+
+- (NSString*) currentBalance:(NSData*)webPageData;
 
 @end
