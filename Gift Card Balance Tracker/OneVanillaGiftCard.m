@@ -45,19 +45,41 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
                             cvvCode:[aDecoder decodeObjectForKey:@"cvvCode"]];
 }
 
-- (NSString*) currentBalance:(NSData *)webPageData
+- (NSString*) currentBalance:(NSData*)webPageData
 {
     TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
     
-    NSString *tutorialsXpathQueryString = @"//table[@id='card_info']/tr/td"; //@"//div[@class='scroll_table']";
+    NSString *tutorialsXpathQueryString = @"//table[@id='card_info']/tr/td";
     NSArray *tutorialsNodes = [httpl searchWithXPathQuery:tutorialsXpathQueryString];
     
+    BOOL availableBalanceIsNext = NO;
     for(TFHppleElement *element in tutorialsNodes) {
-        if(element.content.length > 1 && ![element.content isEqualToString:@" "]) {
-            NSLog(@"Element: %@", element.content);
+        if(availableBalanceIsNext) {
+            return element.content;
+        }
+        if([element.content isEqualToString:@"Available balance"]) {
+            availableBalanceIsNext = YES;
         }
     }
+    return @"";
+}
+
+- (NSString*) startingBalance:(NSData*)webPageData
+{
+    TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
     
+    NSString *tutorialsXpathQueryString = @"//table[@id='card_info']/tr/td";
+    NSArray *tutorialsNodes = [httpl searchWithXPathQuery:tutorialsXpathQueryString];
+    
+    BOOL startingBalanceIsNext = NO;
+    for(TFHppleElement *element in tutorialsNodes) {
+        if(startingBalanceIsNext) {
+            return element.content;
+        }
+        if([element.content isEqualToString:@"Starting balance"]) {
+            startingBalanceIsNext = YES;
+        }
+    }
     return @"";
 }
 
