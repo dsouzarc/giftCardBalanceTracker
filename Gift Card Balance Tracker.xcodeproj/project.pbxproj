@@ -17,13 +17,15 @@
 		94168CE61B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */; };
 		94168CE91B1FC2DD00DEA70D /* OneVanillaGiftCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */; };
 		94168CEB1B1FC75000DEA70D /* ShowGiftCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CEA1B1FC75000DEA70D /* ShowGiftCardViewController.m */; };
-		94168CF71B20F8F600DEA70D /* Temp.html in Resources */ = {isa = PBXBuildFile; fileRef = 94168CF61B20F8F600DEA70D /* Temp.html */; };
 		94168CF91B20FD3100DEA70D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94168CF81B20FD3100DEA70D /* libxml2.dylib */; };
 		94168D3B1B21017E00DEA70D /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168D361B21017E00DEA70D /* TFHpple.m */; };
 		94168D3C1B21017E00DEA70D /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168D381B21017E00DEA70D /* TFHppleElement.m */; };
 		94168D3D1B21017E00DEA70D /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168D3A1B21017E00DEA70D /* XPathQuery.m */; };
 		94B7F5601B21AD690018138D /* AllCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7F55E1B21AD690018138D /* AllCardsViewController.m */; };
 		94B7F5611B21AD690018138D /* AllCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B7F55F1B21AD690018138D /* AllCardsViewController.xib */; };
+		94B7F5631B21AEEC0018138D /* Temp.html in Resources */ = {isa = PBXBuildFile; fileRef = 94B7F5621B21AEEC0018138D /* Temp.html */; };
+		94B7F5671B21AFC30018138D /* BriefCardDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7F5651B21AFC30018138D /* BriefCardDetailTableViewCell.m */; };
+		94B7F5681B21AFC30018138D /* BriefCardDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B7F5661B21AFC30018138D /* BriefCardDetailTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +57,6 @@
 		94168CE71B1FC2DD00DEA70D /* OneVanillaGiftCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneVanillaGiftCard.h; sourceTree = "<group>"; };
 		94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneVanillaGiftCard.m; sourceTree = "<group>"; };
 		94168CEA1B1FC75000DEA70D /* ShowGiftCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowGiftCardViewController.m; sourceTree = "<group>"; };
-		94168CF61B20F8F600DEA70D /* Temp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Temp.html; sourceTree = "<group>"; };
 		94168CF81B20FD3100DEA70D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		94168D351B21017E00DEA70D /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		94168D361B21017E00DEA70D /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
@@ -66,6 +67,10 @@
 		94B7F55D1B21AD690018138D /* AllCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCardsViewController.h; sourceTree = "<group>"; };
 		94B7F55E1B21AD690018138D /* AllCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCardsViewController.m; sourceTree = "<group>"; };
 		94B7F55F1B21AD690018138D /* AllCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCardsViewController.xib; sourceTree = "<group>"; };
+		94B7F5621B21AEEC0018138D /* Temp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Temp.html; sourceTree = "<group>"; };
+		94B7F5641B21AFC30018138D /* BriefCardDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefCardDetailTableViewCell.h; sourceTree = "<group>"; };
+		94B7F5651B21AFC30018138D /* BriefCardDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefCardDetailTableViewCell.m; sourceTree = "<group>"; };
+		94B7F5661B21AFC30018138D /* BriefCardDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BriefCardDetailTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +131,10 @@
 				94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */,
 				94168CE71B1FC2DD00DEA70D /* OneVanillaGiftCard.h */,
 				94168CE81B1FC2DD00DEA70D /* OneVanillaGiftCard.m */,
-				94168CF61B20F8F600DEA70D /* Temp.html */,
+				94B7F5621B21AEEC0018138D /* Temp.html */,
+				94B7F5641B21AFC30018138D /* BriefCardDetailTableViewCell.h */,
+				94B7F5651B21AFC30018138D /* BriefCardDetailTableViewCell.m */,
+				94B7F5661B21AFC30018138D /* BriefCardDetailTableViewCell.xib */,
 			);
 			path = "Gift Card Balance Tracker";
 			sourceTree = "<group>";
@@ -250,10 +258,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B7F5631B21AEEC0018138D /* Temp.html in Resources */,
 				94B7F5611B21AD690018138D /* AllCardsViewController.xib in Resources */,
-				94168CF71B20F8F600DEA70D /* Temp.html in Resources */,
 				94168CE61B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib in Resources */,
 				94168CC81B1FAE7300DEA70D /* Main.storyboard in Resources */,
+				94B7F5681B21AFC30018138D /* BriefCardDetailTableViewCell.xib in Resources */,
 				94168CCD1B1FAE7300DEA70D /* LaunchScreen.xib in Resources */,
 				94168CCA1B1FAE7300DEA70D /* Images.xcassets in Resources */,
 			);
@@ -276,6 +285,7 @@
 				94168D3C1B21017E00DEA70D /* TFHppleElement.m in Sources */,
 				94168D3D1B21017E00DEA70D /* XPathQuery.m in Sources */,
 				94168CC51B1FAE7300DEA70D /* ViewController.m in Sources */,
+				94B7F5671B21AFC30018138D /* BriefCardDetailTableViewCell.m in Sources */,
 				94168CC21B1FAE7300DEA70D /* AppDelegate.m in Sources */,
 				94168D3B1B21017E00DEA70D /* TFHpple.m in Sources */,
 				94168CEB1B1FC75000DEA70D /* ShowGiftCardViewController.m in Sources */,
