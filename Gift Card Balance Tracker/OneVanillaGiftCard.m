@@ -45,6 +45,22 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
                             cvvCode:[aDecoder decodeObjectForKey:@"cvvCode"]];
 }
 
+- (NSString*) currentBalance:(NSData *)webPageData
+{
+    TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
+    
+    NSString *tutorialsXpathQueryString = @"//table[@id='card_info']/tr/td"; //@"//div[@class='scroll_table']";
+    NSArray *tutorialsNodes = [httpl searchWithXPathQuery:tutorialsXpathQueryString];
+    
+    for(TFHppleElement *element in tutorialsNodes) {
+        if(element.content.length > 1 && ![element.content isEqualToString:@" "]) {
+            NSLog(@"Element: %@", element.content);
+        }
+    }
+    
+    return @"";
+}
+
 - (NSURLRequest*) generateBalanceURLRequest
 {
     NSString *url = @"https://www.onevanilla.com/onevanilla/login.html";
