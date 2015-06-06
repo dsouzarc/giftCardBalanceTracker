@@ -90,7 +90,26 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     NSString *tutorialsXpathQueryString = @"//table[@id='card_info']/tr/td";
     NSArray *tutorialsNodes = [httpl searchWithXPathQuery:tutorialsXpathQueryString];
     
-    return tutorialsNodes != nil;
+    if(!tutorialsNodes || tutorialsNodes.count == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+- (NSString*) generateRandomToken
+{
+    NSMutableString *token = [[NSMutableString alloc] initWithString:CSRF_TOKEN];
+    
+    //Change a few characters at random
+    for(int i = 0; i < 3; i++) {
+        NSInteger randomCharIndex = arc4random_uniform((int) token.length);
+        
+        NSRange rangeToReplace = NSMakeRange(randomCharIndex, 1);
+        
+        [token replaceCharactersInRange:rangeToReplace withString:[NSString stringWithFormat:@"%c", [self getRandomChar]]];
+    }
+    
+    return token;
 }
 
 - (NSURLRequest*) generateBalanceURLRequest
@@ -99,7 +118,7 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     
     NSMutableString *post = [[NSMutableString alloc] init];
     [post appendString:@"csrfToken="];
-    [post appendString:CSRF_TOKEN];
+    [post appendString:[self generateRandomToken]];
     [post appendString:@"&cardNumber="];
     [post appendString:self.cardNumber];
     [post appendString:@"&mm="];
@@ -131,6 +150,10 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     [request setHTTPBody:postData];
     
     return request;
+}
+
+- (char)getRandomChar {
+    return (char) (arc4random_uniform(26) + 'a');
 }
 
 @end
