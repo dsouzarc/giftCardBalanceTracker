@@ -17,4 +17,6 @@
 @property (strong, nonatomic, readwrite) NSString *expirYear;
 @property (strong, nonatomic, readwrite) NSString *cvvCode;
 
+@property (strong, nonatomic, readwrite) NSString *startingBalance;
+@property (strong, nonatomic, readwrite) NSString *currentBalance;
 @end

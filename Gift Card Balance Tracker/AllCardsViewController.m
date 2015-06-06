@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSMutableArray *giftCards;
 @property (strong, nonatomic) IBOutlet UITableView *allCardsTableView;
 @property (strong, nonatomic) AddNewCardViewController *addCardViewController;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 - (IBAction)addButton:(id)sender;
 - (IBAction)editButton:(id)sender;
@@ -38,11 +39,28 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     [self.allCardsTableView registerNib:[UINib nibWithNibName:@"BriefCardDetailTableViewCell"
                                                        bundle:[NSBundle mainBundle]] forCellReuseIdentifier:allCardsIdentifier];
     [super viewDidLoad];
+    
+    //SWIPE TO REFRESH
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshGiftCards) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl.tintColor = [UIColor colorWithRed:(254/255.0) green:(153/255.0) blue:(0/255.0) alpha:1];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing gift card balances"];
+    
+    UITableViewController *tableViewController = [[UITableViewController alloc] init];
+    tableViewController.tableView = self.allCardsTableView;
+    tableViewController.refreshControl = self.refreshControl;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.giftCards.count;
+}
+
+- (void) refreshGiftCards
+{
+    [self.allCardsTableView reloadData];
+    
+    [self.refreshControl endRefreshing];
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,9 +76,12 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     
     cell.cardNumberLabel.text = [self formatCardNumber:card.cardNumber];
 
-    [NSURLConnection sendAsynchronousRequest:card.generateBalanceURLRequest
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [NSURLConnection sendAsynchronousRequest:card.generateBalanceURLRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+    {
+        
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        NSLog(@"FOR CARD: %@", card.cardNumber);
+        NSLog(@"%@", string);
         
         if(error) {
             NSString *title = [NSString stringWithFormat:@"Error: %@",
@@ -71,6 +92,20 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
                             
         NSString *startBalance = [card startingBalance:data];
         NSString *currentBalance = [card currentBalance:data];
+        
+        if(!startBalance || startBalance.length <= 2) {
+            startBalance = card.startingBalance;
+        }
+        else {
+            card.startingBalance = startBalance;
+        }
+        
+        if(!currentBalance || currentBalance.length == 0) {
+            currentBalance = card.currentBalance;
+        }
+        else {
+            card.currentBalance = currentBalance;
+        }
                                
         cell.startBalanceLabel.text = [NSString stringWithFormat:@"Start Balance: %@", startBalance];
         cell.currentBalanceLabel.text = [NSString stringWithFormat:@"Current: %@", currentBalance];
@@ -121,11 +156,9 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 - (void) addNewCardViewController:(AddNewCardViewController *)controller newCard:(id<Card>)newCard
 {
     [self.giftCards addObject:newCard];
-    [self.allCardsTableView reloadData];
+    [self refreshGiftCards];
     
     [self saveCards];
-    
-    NSLog(@"Should have saved");
 }
 
 - (IBAction)editButton:(id)sender {
