@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "Card.h"
+#import "AddNewCardViewController.h"
 #import "BriefCardDetailTableViewCell.h"
 
-@interface AllCardsViewController : ViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AllCardsViewController : ViewController <UITableViewDataSource, UITableViewDelegate, AddNewCardViewControllerDelegate>
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil giftCards:(NSMutableArray*)giftcards;
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+                       giftCards:(NSMutableArray*)giftcards;
 
 @end

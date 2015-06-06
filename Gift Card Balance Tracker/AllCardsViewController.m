@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSMutableArray *giftCards;
 @property (strong, nonatomic) IBOutlet UITableView *allCardsTableView;
+@property (strong, nonatomic) AddNewCardViewController *addCardViewController;
 
 - (IBAction)addButton:(id)sender;
 - (IBAction)editButton:(id)sender;
@@ -51,13 +52,12 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     if(!cell) {
         cell = [[BriefCardDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                    reuseIdentifier:allCardsIdentifier];
-        NSLog(@"Initialized");
     }
     
     id<Card> card = (id<Card>) self.giftCards[indexPath.row];
     
     cell.cardNumberLabel.text = [self formatCardNumber:card.cardNumber];
-    
+
     [NSURLConnection sendAsynchronousRequest:card.generateBalanceURLRequest
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -82,6 +82,15 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     return cell;
 }
 
+- (void) saveCards
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.giftCards];
+    [defaults setObject:data forKey:SAVED_CARDS];
+    [defaults synchronize];
+}
+
+
 - (void) showAlert:(NSString*)alertTitle alertMessage:(NSString*)alertMessage buttonName:(NSString*)buttonName {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertTitle
                                                         message:alertMessage
@@ -102,9 +111,21 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     return 72;
 }
 
-
 - (IBAction)addButton:(id)sender {
+    self.addCardViewController = [[AddNewCardViewController alloc] initWithNibName:@"AddNewCardViewController" bundle:[NSBundle mainBundle]];
+    self.addCardViewController.delegate = self;
+    self.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:self.addCardViewController animated:YES completion:nil];
+}
 
+- (void) addNewCardViewController:(AddNewCardViewController *)controller newCard:(id<Card>)newCard
+{
+    [self.giftCards addObject:newCard];
+    [self.allCardsTableView reloadData];
+    
+    [self saveCards];
+    
+    NSLog(@"Should have saved");
 }
 
 - (IBAction)editButton:(id)sender {
