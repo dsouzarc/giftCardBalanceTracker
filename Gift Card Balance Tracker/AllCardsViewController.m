@@ -8,8 +8,6 @@
 
 #import "AllCardsViewController.h"
 
-static NSString const *allCardsIdentifier = @"BriefCardDetailCell";
-
 @interface AllCardsViewController ()
 
 @property (strong, nonatomic) NSMutableArray *giftCards;
@@ -22,20 +20,22 @@ static NSString const *allCardsIdentifier = @"BriefCardDetailCell";
 
 @implementation AllCardsViewController
 
+static NSString *allCardsIdentifier = @"BriefCardDetailCell";
+
 - (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil giftCards:(NSMutableArray *)giftcards
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if(self) {
         self.giftCards = giftcards;
-        
-        [self.allCardsTableView registerNib:[UINib nibWithNibName:@"BriefCardDetailTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:allCardsIdentifier];
     }
     
     return self;
 }
 
 - (void)viewDidLoad {
+    [self.allCardsTableView registerNib:[UINib nibWithNibName:@"BriefCardDetailTableViewCell"
+                                                       bundle:[NSBundle mainBundle]] forCellReuseIdentifier:allCardsIdentifier];
     [super viewDidLoad];
 }
 
@@ -49,14 +49,45 @@ static NSString const *allCardsIdentifier = @"BriefCardDetailCell";
     BriefCardDetailTableViewCell *cell = [self.allCardsTableView dequeueReusableCellWithIdentifier:allCardsIdentifier];
     
     if(!cell) {
-        cell = [[BriefCardDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:allCardsIdentifier];
+        cell = [[BriefCardDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                   reuseIdentifier:allCardsIdentifier];
+        NSLog(@"Initialized");
     }
     
     OneVanillaGiftCard *card = (OneVanillaGiftCard*) self.giftCards[indexPath.row];
     
     cell.cardNumberLabel.text = [self formatCardNumber:card.cardNumber];
     
+    [NSURLConnection sendAsynchronousRequest:card.generateBalanceURLRequest
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if(error) {
+            NSString *title = [NSString stringWithFormat:@"Error: %@", [card.cardNumber substringFromIndex:card.cardNumber.length - 5]];
+            [self showAlert:title alertMessage:error.description buttonName:@"Ok"];
+            return;
+        }
+        
+        NSString *startBalance = [card startingBalance:data];
+        NSString *currentBalance = [card currentBalance:data];
+        
+        cell.startBalanceLabel.text = [NSString stringWithFormat:@"Start Balance: %@", startBalance];
+        cell.currentBalanceLabel.text = [NSString stringWithFormat:@"Current: %@", currentBalance];
+        
+        cell.startBalanceLabel.adjustsFontSizeToFitWidth = YES;
+        cell.currentBalanceLabel.adjustsFontSizeToFitWidth = YES;
+    }];
+    
     return cell;
+}
+
+- (void) showAlert:(NSString*)alertTitle alertMessage:(NSString*)alertMessage buttonName:(NSString*)buttonName {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertTitle
+                                                        message:alertMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:buttonName
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 - (NSString*) formatCardNumber:(NSString*)cardNumber
@@ -67,7 +98,7 @@ static NSString const *allCardsIdentifier = @"BriefCardDetailCell";
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 68;
+    return 72;
 }
 
 

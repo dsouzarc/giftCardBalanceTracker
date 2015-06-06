@@ -20,6 +20,7 @@
 
 - (NSURLRequest*) generateBalanceURLRequest;
 
+- (NSString*) startingBalance:(NSData*)webPageData;
 - (NSString*) currentBalance:(NSData*)webPageData;
 
 @end
