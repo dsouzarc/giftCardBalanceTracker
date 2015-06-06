@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Transaction.h"
 
 static NSString *SAVED_CARDS = @"SAVED_CARDS";
 
@@ -25,6 +26,7 @@ static NSString *SAVED_CARDS = @"SAVED_CARDS";
 - (BOOL) isValidCard:(NSData*)webPageData;
 - (NSString*) startingBalance:(NSData*)webPageData;
 - (NSString*) currentBalance:(NSData*)webPageData;
+- (NSMutableArray*) transactions:(NSData*)webPageData;
 
 @property (strong, nonatomic, readwrite) NSString *cardNumber;
 @property (strong, nonatomic, readwrite) NSString *expirMonth;

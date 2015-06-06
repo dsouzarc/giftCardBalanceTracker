@@ -9,7 +9,9 @@
 #import "ShowGiftCardBalanceViewController.h"
 
 @interface ShowGiftCardBalanceViewController ()
+- (IBAction)back:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIWebView *webview;
 @property (strong, nonatomic) id<Card> giftCard;
 
 @end
@@ -22,6 +24,7 @@
     
     if(self) {
         self.giftCard = giftCard;
+
     }
     
     return self;
@@ -29,16 +32,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:[self.giftCard generateBalanceURLRequest] delegate:self];
-    
-    NSURL *dataPath = [[NSBundle mainBundle] URLForResource:@"Temp" withExtension:@"html"];
-    NSString *stringPath = [dataPath absoluteString]; //this is correct
-    
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:stringPath]];
-
-    NSLog(@"Data: %@", [self.giftCard currentBalance:data]);
-    
+    [self.webview loadRequest:[self.giftCard generateBalanceURLRequest]];
+    self.webview.scrollView.scrollEnabled = TRUE;
+    self.webview.scalesPageToFit = TRUE;
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -58,4 +54,8 @@
     NSLog(@"Finished loading");
 }
 
+- (IBAction)back:(id)sender {
+    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

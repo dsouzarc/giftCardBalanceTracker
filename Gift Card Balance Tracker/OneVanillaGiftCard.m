@@ -83,11 +83,36 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return @"";
 }
 
+
+- (NSMutableArray*) transactions:(NSData *)webPageData
+{
+    NSMutableArray *transactions = [[NSMutableArray alloc] init];
+    
+    TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
+    
+    NSString *queryString = @"//form[@id='card_activity_form']/div/tbody";
+    NSArray *queryNodes = [httpl searchWithXPathQuery:queryString];
+    
+    NSString *answer = @"HELLO";
+    
+    for(TFHppleElement *element in queryNodes) {
+        NSLog(@"Summary: %@", element.text);
+        
+        if([element.content containsString:@"$"]) {
+            answer = element.content;
+        }
+    }
+    
+    NSLog(@"ANSWER: %@", answer);
+    
+    return transactions;
+}
+
 - (BOOL) isValidCard:(NSData *)webPageData
 {
     TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
     
-    NSString *tutorialsXpathQueryString = @"//table[@id='card_info']/tr/td";
+    NSString *tutorialsXpathQueryString = @"//table[@id='card_info']/tr/td/td";
     NSArray *tutorialsNodes = [httpl searchWithXPathQuery:tutorialsXpathQueryString];
     
     if(!tutorialsNodes || tutorialsNodes.count == 0) {

@@ -23,6 +23,8 @@
 		942173081B23744900ADD2B3 /* OneVanillaGiftCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 942173071B23744900ADD2B3 /* OneVanillaGiftCard.m */; };
 		9421730F1B23791700ADD2B3 /* AddNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9421730D1B23791700ADD2B3 /* AddNewCardViewController.m */; };
 		942173101B23791700ADD2B3 /* AddNewCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9421730E1B23791700ADD2B3 /* AddNewCardViewController.xib */; };
+		942173121B23A1EC00ADD2B3 /* Temp.html in Resources */ = {isa = PBXBuildFile; fileRef = 942173111B23A1EC00ADD2B3 /* Temp.html */; };
+		942173151B23A23000ADD2B3 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 942173141B23A23000ADD2B3 /* Transaction.m */; };
 		94B7F5601B21AD690018138D /* AllCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7F55E1B21AD690018138D /* AllCardsViewController.m */; };
 		94B7F5611B21AD690018138D /* AllCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B7F55F1B21AD690018138D /* AllCardsViewController.xib */; };
 		94B7F5671B21AFC30018138D /* BriefCardDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7F5651B21AFC30018138D /* BriefCardDetailTableViewCell.m */; };
@@ -69,6 +71,9 @@
 		9421730C1B23791700ADD2B3 /* AddNewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewCardViewController.h; sourceTree = "<group>"; };
 		9421730D1B23791700ADD2B3 /* AddNewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewCardViewController.m; sourceTree = "<group>"; };
 		9421730E1B23791700ADD2B3 /* AddNewCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewCardViewController.xib; sourceTree = "<group>"; };
+		942173111B23A1EC00ADD2B3 /* Temp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Temp.html; sourceTree = "<group>"; };
+		942173131B23A23000ADD2B3 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		942173141B23A23000ADD2B3 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
 		94B7F55D1B21AD690018138D /* AllCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCardsViewController.h; sourceTree = "<group>"; };
 		94B7F55E1B21AD690018138D /* AllCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCardsViewController.m; sourceTree = "<group>"; };
 		94B7F55F1B21AD690018138D /* AllCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCardsViewController.xib; sourceTree = "<group>"; };
@@ -136,6 +141,9 @@
 				94168CC91B1FAE7300DEA70D /* Images.xcassets */,
 				94168CCB1B1FAE7300DEA70D /* LaunchScreen.xib */,
 				94168CBC1B1FAE7300DEA70D /* Supporting Files */,
+				942173111B23A1EC00ADD2B3 /* Temp.html */,
+				942173131B23A23000ADD2B3 /* Transaction.h */,
+				942173141B23A23000ADD2B3 /* Transaction.m */,
 			);
 			path = "Gift Card Balance Tracker";
 			sourceTree = "<group>";
@@ -291,6 +299,7 @@
 			files = (
 				94B7F5611B21AD690018138D /* AllCardsViewController.xib in Resources */,
 				94168CE61B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib in Resources */,
+				942173121B23A1EC00ADD2B3 /* Temp.html in Resources */,
 				94168CC81B1FAE7300DEA70D /* Main.storyboard in Resources */,
 				94B7F5681B21AFC30018138D /* BriefCardDetailTableViewCell.xib in Resources */,
 				942173101B23791700ADD2B3 /* AddNewCardViewController.xib in Resources */,
@@ -319,6 +328,7 @@
 				94168CC51B1FAE7300DEA70D /* ViewController.m in Sources */,
 				94B7F5671B21AFC30018138D /* BriefCardDetailTableViewCell.m in Sources */,
 				94168CC21B1FAE7300DEA70D /* AppDelegate.m in Sources */,
+				942173151B23A23000ADD2B3 /* Transaction.m in Sources */,
 				94168D3B1B21017E00DEA70D /* TFHpple.m in Sources */,
 				94168CEB1B1FC75000DEA70D /* ShowGiftCardViewController.m in Sources */,
 				94B7F5601B21AD690018138D /* AllCardsViewController.m in Sources */,

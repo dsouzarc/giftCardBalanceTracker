@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Card.h"
+#import "ShowGiftCardBalanceViewController.h"
 #import "AddNewCardViewController.h"
 #import "BriefCardDetailTableViewCell.h"
 

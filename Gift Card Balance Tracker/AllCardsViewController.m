@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *allCardsTableView;
 @property (strong, nonatomic) AddNewCardViewController *addCardViewController;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) ShowGiftCardBalanceViewController *showBalance;
 
 - (IBAction)addButton:(id)sender;
 - (IBAction)editButton:(id)sender;
@@ -115,6 +116,14 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     }];
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id<Card> chosen = self.giftCards[indexPath.row];
+    self.showBalance = [[ShowGiftCardBalanceViewController alloc] initWithNibName:@"ShowGiftCardBalanceViewController" bundle:[NSBundle mainBundle] giftCard:chosen];
+    self.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:self.showBalance animated:YES completion:nil];
 }
 
 - (void) saveCards
