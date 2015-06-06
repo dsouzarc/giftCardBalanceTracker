@@ -63,14 +63,15 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         if(error) {
-            NSString *title = [NSString stringWithFormat:@"Error: %@", [card.cardNumber substringFromIndex:card.cardNumber.length - 5]];
+            NSString *title = [NSString stringWithFormat:@"Error: %@",
+                               [card.cardNumber substringFromIndex:card.cardNumber.length - 5]];
             [self showAlert:title alertMessage:error.description buttonName:@"Ok"];
             return;
         }
-        
+                            
         NSString *startBalance = [card startingBalance:data];
         NSString *currentBalance = [card currentBalance:data];
-        
+                               
         cell.startBalanceLabel.text = [NSString stringWithFormat:@"Start Balance: %@", startBalance];
         cell.currentBalanceLabel.text = [NSString stringWithFormat:@"Current: %@", currentBalance];
         

@@ -15,8 +15,10 @@
 - (instancetype) initWithEverything:(NSString*)cardNumber expirMonth:(NSString*)expirMonth
                           expirYear:(NSString*)expirYear cvvCode:(NSString*)cvvCode;
 
+
 - (NSURLRequest*) generateBalanceURLRequest;
 
+- (BOOL) isValidCard:(NSData*)webPageData;
 - (NSString*) startingBalance:(NSData*)webPageData;
 - (NSString*) currentBalance:(NSData*)webPageData;
 

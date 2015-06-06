@@ -83,6 +83,16 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return @"";
 }
 
+- (BOOL) isValidCard:(NSData *)webPageData
+{
+    TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
+    
+    NSString *tutorialsXpathQueryString = @"//table[@id='card_info']/tr/td";
+    NSArray *tutorialsNodes = [httpl searchWithXPathQuery:tutorialsXpathQueryString];
+    
+    return tutorialsNodes != nil;
+}
+
 - (NSURLRequest*) generateBalanceURLRequest
 {
     NSString *url = @"https://www.onevanilla.com/onevanilla/login.html";
