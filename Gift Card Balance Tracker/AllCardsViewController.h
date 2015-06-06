@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "OneVanillaGiftCard.h"
+#import "Card.h"
 #import "BriefCardDetailTableViewCell.h"
 
 @interface AllCardsViewController : ViewController <UITableViewDataSource, UITableViewDelegate>

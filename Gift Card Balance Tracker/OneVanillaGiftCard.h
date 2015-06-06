@@ -2,25 +2,19 @@
 //  OneVanillaGiftCard.h
 //  Gift Card Balance Tracker
 //
-//  Created by Ryan D'souza on 6/3/15.
+//  Created by Ryan D'souza on 6/6/15.
 //  Copyright (c) 2015 Ryan D'souza. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "TFHpple.h"
+#import "Card.h"
 
-@interface OneVanillaGiftCard : NSObject <NSCoding>
+@interface OneVanillaGiftCard : NSObject<Card>
 
-- (instancetype) initWithEverything:(NSString*)cardNumber expirMonth:(NSString*)expirMonth expirYear:(NSString*)expirYear cvvCode:(NSString*)cvvCode;
+@property (strong, nonatomic, readwrite) NSString *cardNumber;
 
-@property (strong, nonatomic) NSString *cardNumber;
-@property (strong, nonatomic) NSString *expirMonth;
-@property (strong, nonatomic) NSString *expirYear;
-@property (strong, nonatomic) NSString *cvvCode;
-
-- (NSURLRequest*) generateBalanceURLRequest;
-
-- (NSString*) startingBalance:(NSData*)webPageData;
-- (NSString*) currentBalance:(NSData*)webPageData;
+@property (strong, nonatomic, readwrite) NSString *expirMonth;
+@property (strong, nonatomic, readwrite) NSString *expirYear;
+@property (strong, nonatomic, readwrite) NSString *cvvCode;
 
 @end

@@ -10,13 +10,13 @@
 
 @interface ShowGiftCardBalanceViewController ()
 
-@property (strong, nonatomic) OneVanillaGiftCard *giftCard;
+@property (strong, nonatomic) id<Card> giftCard;
 
 @end
 
 @implementation ShowGiftCardBalanceViewController
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil giftCard:(OneVanillaGiftCard *)giftCard
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil giftCard:(id<Card>)giftCard
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     

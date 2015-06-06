@@ -54,7 +54,7 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
         NSLog(@"Initialized");
     }
     
-    OneVanillaGiftCard *card = (OneVanillaGiftCard*) self.giftCards[indexPath.row];
+    id<Card> card = (id<Card>) self.giftCards[indexPath.row];
     
     cell.cardNumberLabel.text = [self formatCardNumber:card.cardNumber];
     
