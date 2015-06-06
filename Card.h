@@ -9,12 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+static NSString *SAVED_CARDS = @"SAVED_CARDS";
+
 @protocol Card <NSObject, NSCoding>
 
 @required
 - (instancetype) initWithEverything:(NSString*)cardNumber expirMonth:(NSString*)expirMonth
                           expirYear:(NSString*)expirYear cvvCode:(NSString*)cvvCode;
 
+- (id) initWithCoder:(NSCoder *)aDecoder;
+- (void) encodeWithCoder:(NSCoder *)aCoder;
 
 - (NSURLRequest*) generateBalanceURLRequest;
 
