@@ -17,7 +17,7 @@
 
 @end
 
-@interface AddNewCardViewController : ViewController
+@interface AddNewCardViewController : ViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) id<AddNewCardViewControllerDelegate> delegate;
 

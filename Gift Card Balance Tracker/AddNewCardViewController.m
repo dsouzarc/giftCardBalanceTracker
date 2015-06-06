@@ -23,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                                    initWithTarget:self action:@selector(tapReceived:)];
+    [tapGestureRecognizer setDelegate:self];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (IBAction)addCardButton:(id)sender {
@@ -32,7 +36,7 @@
                                 expirMonth:self.expirationMonthTextField.text
                                 expirYear:self.expirationYearTextField.text
                                 cvvCode:self.cvvCodeTextField.text];
-    
+
     [self.delegate addNewCardViewController:self newCard:card];
     
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -42,6 +46,24 @@
 - (IBAction)cancelButton:(id)sender {
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) showAlert:(NSString*)alertTitle alertMessage:(NSString*)alertMessage buttonName:(NSString*)buttonName {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertTitle
+                                                        message:alertMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:buttonName
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+-(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
+{
+    [self.view endEditing:YES];
 }
 
 @end
