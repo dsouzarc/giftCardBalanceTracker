@@ -83,6 +83,12 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return @"";
 }
 
+- (NSString*) hiddenCardNumberFormat
+{
+    NSString *last4 = [self.cardNumber substringFromIndex:self.cardNumber.length - 4];
+    return [NSString stringWithFormat:@"XXXX-XXXX-XXXX-%@", last4];
+}
+
 - (BOOL) isValidCard:(NSData *)webPageData
 {
     TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
