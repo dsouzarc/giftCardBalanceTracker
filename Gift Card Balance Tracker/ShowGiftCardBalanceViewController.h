@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "Card.h"
 
-@interface ShowGiftCardBalanceViewController : ViewController <NSURLConnectionDelegate>
+@interface ShowGiftCardBalanceViewController : ViewController <UITableViewDataSource, UITableViewDataSource>
 
 - (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil giftCard:(id<Card>)giftCard;
 
