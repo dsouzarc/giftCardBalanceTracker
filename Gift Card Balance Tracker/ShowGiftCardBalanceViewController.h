@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Card.h"
+#import "TransactionTableViewCell.h"
 
 @interface ShowGiftCardBalanceViewController : ViewController <UITableViewDataSource, UITableViewDataSource>
 

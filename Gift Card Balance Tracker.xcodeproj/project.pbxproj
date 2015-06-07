@@ -28,6 +28,8 @@
 		94B7F5611B21AD690018138D /* AllCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B7F55F1B21AD690018138D /* AllCardsViewController.xib */; };
 		94B7F5671B21AFC30018138D /* BriefCardDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7F5651B21AFC30018138D /* BriefCardDetailTableViewCell.m */; };
 		94B7F5681B21AFC30018138D /* BriefCardDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B7F5661B21AFC30018138D /* BriefCardDetailTableViewCell.xib */; };
+		94BC6B381B24FC1E004810AD /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B361B24FC1E004810AD /* TransactionTableViewCell.m */; };
+		94BC6B391B24FC1E004810AD /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94BC6B371B24FC1E004810AD /* TransactionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +66,6 @@
 		94168D381B21017E00DEA70D /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		94168D391B21017E00DEA70D /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		94168D3A1B21017E00DEA70D /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
-		942173051B23739C00ADD2B3 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = ../Card.h; sourceTree = "<group>"; };
 		942173061B23744900ADD2B3 /* OneVanillaGiftCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneVanillaGiftCard.h; sourceTree = "<group>"; };
 		942173071B23744900ADD2B3 /* OneVanillaGiftCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneVanillaGiftCard.m; sourceTree = "<group>"; };
 		9421730C1B23791700ADD2B3 /* AddNewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewCardViewController.h; sourceTree = "<group>"; };
@@ -78,6 +79,10 @@
 		94B7F5641B21AFC30018138D /* BriefCardDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefCardDetailTableViewCell.h; sourceTree = "<group>"; };
 		94B7F5651B21AFC30018138D /* BriefCardDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefCardDetailTableViewCell.m; sourceTree = "<group>"; };
 		94B7F5661B21AFC30018138D /* BriefCardDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BriefCardDetailTableViewCell.xib; sourceTree = "<group>"; };
+		94BC6B351B24FC1E004810AD /* TransactionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableViewCell.h; sourceTree = "<group>"; };
+		94BC6B361B24FC1E004810AD /* TransactionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableViewCell.m; sourceTree = "<group>"; };
+		94BC6B371B24FC1E004810AD /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		94BC6B3A1B24FCF7004810AD /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +144,9 @@
 				94168CC91B1FAE7300DEA70D /* Images.xcassets */,
 				94168CCB1B1FAE7300DEA70D /* LaunchScreen.xib */,
 				94168CBC1B1FAE7300DEA70D /* Supporting Files */,
+				94BC6B351B24FC1E004810AD /* TransactionTableViewCell.h */,
+				94BC6B361B24FC1E004810AD /* TransactionTableViewCell.m */,
+				94BC6B371B24FC1E004810AD /* TransactionTableViewCell.xib */,
 			);
 			path = "Gift Card Balance Tracker";
 			sourceTree = "<group>";
@@ -185,7 +193,7 @@
 		942173091B2378BD00ADD2B3 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				942173051B23739C00ADD2B3 /* Card.h */,
+				94BC6B3A1B24FCF7004810AD /* Card.h */,
 				942173131B23A23000ADD2B3 /* Transaction.h */,
 				942173141B23A23000ADD2B3 /* Transaction.m */,
 				942173061B23744900ADD2B3 /* OneVanillaGiftCard.h */,
@@ -300,6 +308,7 @@
 				94B7F5681B21AFC30018138D /* BriefCardDetailTableViewCell.xib in Resources */,
 				942173101B23791700ADD2B3 /* AddNewCardViewController.xib in Resources */,
 				94168CCD1B1FAE7300DEA70D /* LaunchScreen.xib in Resources */,
+				94BC6B391B24FC1E004810AD /* TransactionTableViewCell.xib in Resources */,
 				94168CCA1B1FAE7300DEA70D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +337,7 @@
 				94168D3B1B21017E00DEA70D /* TFHpple.m in Sources */,
 				94168CEB1B1FC75000DEA70D /* ShowGiftCardViewController.m in Sources */,
 				94B7F5601B21AD690018138D /* AllCardsViewController.m in Sources */,
+				94BC6B381B24FC1E004810AD /* TransactionTableViewCell.m in Sources */,
 				942173081B23744900ADD2B3 /* OneVanillaGiftCard.m in Sources */,
 				94168CBF1B1FAE7300DEA70D /* main.m in Sources */,
 			);

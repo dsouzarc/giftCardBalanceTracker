@@ -13,14 +13,19 @@
 @property (strong, nonatomic) IBOutlet UIButton *cardNumber;
 @property (strong, nonatomic) IBOutlet UIButton *expirationMonth;
 @property (strong, nonatomic) IBOutlet UIButton *expirationYear;
+@property (strong, nonatomic) IBOutlet UILabel *currentBalance;
+@property (strong, nonatomic) IBOutlet UILabel *initialBalance;
 
 @property (strong, nonatomic) IBOutlet UIButton *cvvCode;
 @property (strong, nonatomic) id<Card> giftCard;
+@property (strong, nonatomic) NSMutableArray *transactions;
 @property (strong, nonatomic) IBOutlet UITableView *transactionsTableView;
 
 - (IBAction)back:(id)sender;
 
 @end
+
+static NSString *transactionIdentifier = @"TransactionCell";
 
 @implementation ShowGiftCardBalanceViewController
 
@@ -30,7 +35,7 @@
     
     if(self) {
         self.giftCard = giftCard;
-
+        self.transactions = [self.giftCard transactions:self.giftCard.tempDataStore];
     }
     
     return self;
@@ -38,13 +43,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.transactionsTableView registerNib:[UINib nibWithNibName:@"TransactionTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:transactionIdentifier];
     [self.giftCard transactions:self.giftCard.tempDataStore];
     
     [self.cardNumber setTitle:[self.giftCard hiddenCardNumberFormat] forState:UIControlStateNormal];
     [self.expirationMonth setTitle:@"MM" forState:UIControlStateNormal];
     [self.expirationYear setTitle:@"YY" forState:UIControlStateNormal];
     [self.cvvCode setTitle:@"XXX" forState:UIControlStateNormal];
+    
+    self.initialBalance.text = [self.giftCard startingBalance:self.giftCard.tempDataStore];
+    self.currentBalance.text = [self.giftCard currentBalance:self.giftCard.tempDataStore];
 }
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 140;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.transactions.count;
+}
+
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TransactionTableViewCell *cell = [self.transactionsTableView dequeueReusableCellWithIdentifier:transactionIdentifier];
+    
+    if(!cell) {
+        cell = [[TransactionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:transactionIdentifier];
+    }
+    
+    Transaction *transaction = (Transaction*)self.transactions[indexPath.row];
+    
+    cell.transactionTitle.text = transaction.nameAndLocation;
+    cell.transactionDate.text = transaction.time;
+    cell.transactionCost.text = transaction.debitAmount;
+
+    cell.transactionDate.adjustsFontSizeToFitWidth = YES;
+    cell.transactionCost.adjustsFontSizeToFitWidth = YES;
+    
+    return cell;
+}
+
 
 - (IBAction)cvvCode:(id)sender {
     if([self.cvvCode.titleLabel.text isEqualToString:@"XXX"]) {
