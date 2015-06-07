@@ -75,7 +75,7 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     
     id<Card> card = (id<Card>) self.giftCards[indexPath.row];
     
-    cell.cardNumberLabel.text = [self formatCardNumber:card.cardNumber];
+    cell.cardNumberLabel.text = [card hiddenCardNumberFormat];
 
     [NSURLConnection sendAsynchronousRequest:card.generateBalanceURLRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
     {
@@ -84,8 +84,7 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
         //NSLog(@"%@", string);
         
         if(error) {
-            NSString *title = [NSString stringWithFormat:@"Error: %@",
-                               [card.cardNumber substringFromIndex:card.cardNumber.length - 5]];
+            NSString *title = [card hiddenCardNumberFormat];
             [self showAlert:title alertMessage:error.description buttonName:@"Ok"];
             return;
         }
@@ -142,12 +141,6 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
                                               cancelButtonTitle:buttonName
                                               otherButtonTitles:nil, nil];
     [alertView show];
-}
-
-- (NSString*) formatCardNumber:(NSString*)cardNumber
-{
-    NSString *last4 = [cardNumber substringFromIndex:cardNumber.length - 5];
-    return [NSString stringWithFormat:@"XXXX-XXXX-XXXX-%@", last4];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
