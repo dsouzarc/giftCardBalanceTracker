@@ -11,7 +11,6 @@
 @interface ShowGiftCardBalanceViewController ()
 - (IBAction)back:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UIWebView *webview;
 @property (strong, nonatomic) id<Card> giftCard;
 
 @end
@@ -32,9 +31,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.webview loadRequest:[self.giftCard generateBalanceURLRequest]];
-    self.webview.scrollView.scrollEnabled = TRUE;
-    self.webview.scalesPageToFit = TRUE;
+
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Temp" ofType:@"html"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    
+    [self.giftCard transactions:data];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data

@@ -81,8 +81,8 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     {
         
         NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-        NSLog(@"FOR CARD: %@", card.cardNumber);
-        NSLog(@"%@", string);
+        //NSLog(@"FOR CARD: %@", card.cardNumber);
+        //NSLog(@"%@", string);
         
         if(error) {
             NSString *title = [NSString stringWithFormat:@"Error: %@",
