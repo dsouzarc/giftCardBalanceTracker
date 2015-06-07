@@ -9,6 +9,7 @@
 #import "ShowGiftCardBalanceViewController.h"
 
 @interface ShowGiftCardBalanceViewController ()
+
 - (IBAction)back:(id)sender;
 
 @property (strong, nonatomic) id<Card> giftCard;
@@ -32,31 +33,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Temp" ofType:@"html"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    
-    [self.giftCard transactions:data];
-}
+    [self.giftCard transactions:self.giftCard.tempDataStore];
 
-- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSLog(@"Data received");
-    NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", strData);
-}
-
-- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"FAILED: %@", error.description);
-}
-
-- (void) connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSLog(@"Finished loading");
 }
 
 - (IBAction)back:(id)sender {
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end
