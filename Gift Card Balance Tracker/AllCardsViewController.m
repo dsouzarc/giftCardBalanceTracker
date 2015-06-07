@@ -80,8 +80,7 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     [NSURLConnection sendAsynchronousRequest:card.generateBalanceURLRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
     {
         
-        NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-        //NSLog(@"FOR CARD: %@", card.cardNumber);
+        //NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         //NSLog(@"%@", string);
         
         if(error) {
@@ -99,6 +98,7 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
         }
         else {
             card.startingBalance = startBalance;
+            card.tempDataStore = data;
         }
         
         if(!currentBalance || currentBalance.length == 0) {
