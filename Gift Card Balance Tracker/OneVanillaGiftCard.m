@@ -101,11 +101,18 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
 {
     NSMutableArray *transactions = [[NSMutableArray alloc] init];
     
+    //There's a wrong tag so we have to fix it. Might as well move newlines/spaces as well
+    NSString *string = [[NSString alloc] initWithData:webPageData encoding:NSASCIIStringEncoding];
+    string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"  " withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"</body>" withString:@"</tbody>"]; // <-- Typo some dev made :'(
+    webPageData = [string dataUsingEncoding:NSUTF8StringEncoding];
+    
     TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
 
-    NSString *queryString = @"//table[@class='transactions_set']/tbody/tr/td";
+    NSString *queryString = @"//table/tbody/tr/td";
     NSArray *queryNodes = [httpl searchWithXPathQuery:queryString];
-    
+
     for(int i = 0; i < queryNodes.count - 3; i+=4) {
         
         NSString *time = [self nicelyFormattedString:queryNodes[i]];
@@ -116,9 +123,8 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
         if(debitAmount.length >= 2 || creditAmount.length >= 2) {
             Transaction *transaction = [[Transaction alloc] initWithEverything:time nameAndLoc:place debitAmount:debitAmount];
             [transactions addObject:transaction];
-             NSLog(@"%@\t%@\t%@\t%@", time, place, debitAmount, creditAmount);
+             NSLog(@"Yo: \t%@\t%@\t%@\t%@", time, place, debitAmount, creditAmount);
         }
-        
     }
     
     return transactions;
@@ -131,10 +137,10 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     result = [result stringByReplacingOccurrencesOfString:@"+" withString:@""];
     result = [result stringByReplacingOccurrencesOfString:@"  " withString:@""];
     result = [result stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    return result;
+    
+    NSArray* words = [result componentsSeparatedByCharactersInSet :[NSCharacterSet newlineCharacterSet]];
+    return [words componentsJoinedByString:@""];
 }
-                                     
-                                
 
 - (NSString*) generateRandomToken
 {

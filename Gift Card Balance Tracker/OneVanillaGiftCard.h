@@ -19,4 +19,5 @@
 
 @property (strong, nonatomic, readwrite) NSString *startingBalance;
 @property (strong, nonatomic, readwrite) NSString *currentBalance;
+@property (strong, nonatomic, readwrite) NSData *tempDataStore;
 @end
