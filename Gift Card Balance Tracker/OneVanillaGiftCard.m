@@ -126,7 +126,7 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
         NSString *debitAmount = [self nicelyFormattedString:queryNodes[i + 2]];
         NSString *creditAmount = [self nicelyFormattedString:queryNodes[i + 3]];
         
-        if(debitAmount.length >= 2 || creditAmount.length >= 2) {
+        if(debitAmount.length >= 2) {
             Transaction *transaction = [[Transaction alloc] initWithEverything:time nameAndLoc:place debitAmount:debitAmount];
             [transactions addObject:transaction];
              NSLog(@"Yo: \t%@\t%@\t%@\t%@", time, place, debitAmount, creditAmount);
