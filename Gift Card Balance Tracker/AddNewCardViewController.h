@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PQFBouncingBalls.h"
 #import "OneVanillaGiftCard.h"
 
 @class AddNewCardViewController;
@@ -17,7 +18,7 @@
 
 @end
 
-@interface AddNewCardViewController : ViewController <UITextFieldDelegate>
+@interface AddNewCardViewController : ViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) id<AddNewCardViewControllerDelegate> delegate;
 

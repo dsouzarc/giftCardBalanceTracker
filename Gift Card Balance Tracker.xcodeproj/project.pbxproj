@@ -33,6 +33,7 @@
 		94BC6B431B250676004810AD /* PQFBarsInCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B3D1B250676004810AD /* PQFBarsInCircle.m */; };
 		94BC6B441B250676004810AD /* PQFBouncingBalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B3F1B250676004810AD /* PQFBouncingBalls.m */; };
 		94BC6B451B250676004810AD /* PQFCirclesInTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B411B250676004810AD /* PQFCirclesInTriangle.m */; };
+		94BC6B491B25083E004810AD /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B481B25083E004810AD /* UIColor+FlatColors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		94BC6B401B250676004810AD /* PQFCirclesInTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQFCirclesInTriangle.h; sourceTree = "<group>"; };
 		94BC6B411B250676004810AD /* PQFCirclesInTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQFCirclesInTriangle.m; sourceTree = "<group>"; };
 		94BC6B421B250676004810AD /* PQFCustomLoaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQFCustomLoaders.h; sourceTree = "<group>"; };
+		94BC6B471B25083E004810AD /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatColors.h"; path = "UIColor+FlatColors/UIColor+FlatColors.h"; sourceTree = "<group>"; };
+		94BC6B481B25083E004810AD /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatColors.m"; path = "UIColor+FlatColors/UIColor+FlatColors.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +239,8 @@
 		94BC6B3B1B250676004810AD /* PQFCustomLoaders */ = {
 			isa = PBXGroup;
 			children = (
+				94BC6B471B25083E004810AD /* UIColor+FlatColors.h */,
+				94BC6B481B25083E004810AD /* UIColor+FlatColors.m */,
 				94BC6B3C1B250676004810AD /* PQFBarsInCircle.h */,
 				94BC6B3D1B250676004810AD /* PQFBarsInCircle.m */,
 				94BC6B3E1B250676004810AD /* PQFBouncingBalls.h */,
@@ -360,6 +365,7 @@
 				94B7F5671B21AFC30018138D /* BriefCardDetailTableViewCell.m in Sources */,
 				94168CC21B1FAE7300DEA70D /* AppDelegate.m in Sources */,
 				942173151B23A23000ADD2B3 /* Transaction.m in Sources */,
+				94BC6B491B25083E004810AD /* UIColor+FlatColors.m in Sources */,
 				94168D3B1B21017E00DEA70D /* TFHpple.m in Sources */,
 				94BC6B431B250676004810AD /* PQFBarsInCircle.m in Sources */,
 				94BC6B451B250676004810AD /* PQFCirclesInTriangle.m in Sources */,

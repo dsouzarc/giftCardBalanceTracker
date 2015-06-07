@@ -15,6 +15,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *expirationMonthTextField;
 @property (strong, nonatomic) IBOutlet UITextField *expirationYearTextField;
 @property (strong, nonatomic) IBOutlet UITextField *cvvCodeTextField;
+@property (strong, nonatomic) PQFBouncingBalls *bouncingBalls;
+
+@property (strong, nonatomic) UIAlertView *addCardAlertView;
+@property (strong, nonatomic) OneVanillaGiftCard *giftCard;
 
 @end
 
@@ -31,14 +35,57 @@
 
 - (IBAction)addCardButton:(id)sender {
     
-    OneVanillaGiftCard *card = [[OneVanillaGiftCard alloc]
+    self.giftCard = [[OneVanillaGiftCard alloc]
                                 initWithEverything:self.cardNumberTextField.text
                                 expirMonth:self.expirationMonthTextField.text
                                 expirYear:self.expirationYearTextField.text
                                 cvvCode:self.cvvCodeTextField.text];
-
-    [self.delegate addNewCardViewController:self newCard:card];
     
+    if(!self.bouncingBalls) {
+        self.bouncingBalls = [[PQFBouncingBalls alloc] initLoaderOnView:self.view];
+        self.bouncingBalls.loaderColor = [UIColor blueColor];
+    }
+    [self.bouncingBalls show];
+    
+    [NSURLConnection sendAsynchronousRequest:self.giftCard.generateBalanceURLRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         [self.bouncingBalls hide];
+         
+         //NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+         //NSLog(@"%@", string);
+         
+         if(error) {
+             NSString *title = [self.giftCard hiddenCardNumberFormat];
+             [self showAlert:title alertMessage:error.description buttonName:@"Ok"];
+             return;
+         }
+         
+         NSString *startBalance = [self.giftCard startingBalance:data];
+         NSString *currentBalance = [self.giftCard currentBalance:data];
+         
+         if(!startBalance || startBalance.length <= 2 || currentBalance) {
+             self.addCardAlertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Information" message:@"It doesn't seem like we could find any debit card with that information. Would you like to add it anyway?" delegate:self cancelButtonTitle:@"I'll re-enter the information" otherButtonTitles:@"Add card anyway", nil];
+             [self.addCardAlertView show];
+             return;
+         }
+         else {
+             [self addCard];
+         }
+     }];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView == self.addCardAlertView) {
+        //Add card anyway
+        if(buttonIndex == 1) {
+            [self addCard];
+        }
+    }
+}
+
+- (void) addCard {
+    [self.delegate addNewCardViewController:self newCard:self.giftCard];
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
