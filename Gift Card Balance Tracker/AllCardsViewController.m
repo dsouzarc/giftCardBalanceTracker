@@ -15,6 +15,7 @@
 @property (strong, nonatomic) AddNewCardViewController *addCardViewController;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) ShowGiftCardBalanceViewController *showBalance;
+@property (strong, nonatomic) PQFCirclesInTriangle *loadingAnimation;
 
 - (IBAction)addButton:(id)sender;
 - (IBAction)editButton:(id)sender;
@@ -39,7 +40,13 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 - (void)viewDidLoad {
     [self.allCardsTableView registerNib:[UINib nibWithNibName:@"BriefCardDetailTableViewCell"
                                                        bundle:[NSBundle mainBundle]] forCellReuseIdentifier:allCardsIdentifier];
+    self.loadingAnimation = [[PQFCirclesInTriangle alloc] initLoaderOnView:self.view];
+    self.loadingAnimation.loaderColor = [UIColor blueColor];
+    self.loadingAnimation.borderWidth = 5.0;
+    self.loadingAnimation.maxDiam = 200.0;
+    [self.loadingAnimation show];
     [super viewDidLoad];
+
     
     //SWIPE TO REFRESH
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -59,8 +66,8 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 
 - (void) refreshGiftCards
 {
+    [self.loadingAnimation show];
     [self.allCardsTableView reloadData];
-    
     [self.refreshControl endRefreshing];
 }
 
@@ -79,6 +86,9 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 
     [NSURLConnection sendAsynchronousRequest:card.generateBalanceURLRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
     {
+        if(indexPath.row == self.giftCards.count - 1) {
+            [self.loadingAnimation hide];
+        }
         
         //NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         //NSLog(@"%@", string);

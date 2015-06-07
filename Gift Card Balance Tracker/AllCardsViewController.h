@@ -11,6 +11,7 @@
 #import "ShowGiftCardBalanceViewController.h"
 #import "AddNewCardViewController.h"
 #import "BriefCardDetailTableViewCell.h"
+#import "PQFCirclesInTriangle.h"
 
 @interface AllCardsViewController : ViewController <UITableViewDataSource, UITableViewDelegate, AddNewCardViewControllerDelegate>
 
