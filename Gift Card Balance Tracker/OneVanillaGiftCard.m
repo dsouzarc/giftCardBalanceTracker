@@ -83,31 +83,6 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return @"";
 }
 
-
-- (NSMutableArray*) transactions:(NSData *)webPageData
-{
-    NSMutableArray *transactions = [[NSMutableArray alloc] init];
-    
-    TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
-    
-    NSString *queryString = @"//form[@id='card_activity_form']/div/tbody";
-    NSArray *queryNodes = [httpl searchWithXPathQuery:queryString];
-    
-    NSString *answer = @"HELLO";
-    
-    for(TFHppleElement *element in queryNodes) {
-        NSLog(@"Summary: %@", element.text);
-        
-        if([element.content containsString:@"$"]) {
-            answer = element.content;
-        }
-    }
-    
-    NSLog(@"ANSWER: %@", answer);
-    
-    return transactions;
-}
-
 - (BOOL) isValidCard:(NSData *)webPageData
 {
     TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
@@ -120,6 +95,46 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     }
     return YES;
 }
+
+
+- (NSMutableArray*) transactions:(NSData *)webPageData
+{
+    NSMutableArray *transactions = [[NSMutableArray alloc] init];
+    
+    TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
+
+    NSString *queryString = @"//table[@class='transactions_set']/tbody/tr/td";
+    NSArray *queryNodes = [httpl searchWithXPathQuery:queryString];
+    
+    for(int i = 0; i < queryNodes.count - 3; i+=4) {
+        
+        NSString *time = [self nicelyFormattedString:queryNodes[i]];
+        NSString *place = [self nicelyFormattedString:queryNodes[i + 1]];
+        NSString *debitAmount = [self nicelyFormattedString:queryNodes[i + 2]];
+        NSString *creditAmount = [self nicelyFormattedString:queryNodes[i + 3]];
+        
+        if(debitAmount.length >= 2 || creditAmount.length >= 2) {
+            Transaction *transaction = [[Transaction alloc] initWithEverything:time nameAndLoc:place debitAmount:debitAmount];
+            [transactions addObject:transaction];
+             NSLog(@"%@\t%@\t%@\t%@", time, place, debitAmount, creditAmount);
+        }
+        
+    }
+    
+    return transactions;
+}
+
+- (NSString*) nicelyFormattedString:(NSObject*)object
+{
+    TFHppleElement *element = (TFHppleElement*)object;
+    NSString *result = element.content;
+    result = [result stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@"  " withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    return result;
+}
+                                     
+                                
 
 - (NSString*) generateRandomToken
 {
