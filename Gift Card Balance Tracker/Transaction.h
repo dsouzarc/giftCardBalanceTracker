@@ -10,11 +10,10 @@
 
 @interface Transaction : NSObject
 
-@property (strong, nonatomic) NSString *date;
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *location;
+@property (strong, nonatomic) NSString *time;
+@property (strong, nonatomic) NSString *nameAndLocation;
 @property (strong, nonatomic) NSString *debitAmount;
 
-- (instancetype) initWithEverything:(NSString*)date name:(NSString*)name location:(NSString*)location debitAmount:(NSString*)debitAmount;
+- (instancetype) initWithEverything:(NSString*)time nameAndLoc:(NSString*)nameAndLoc debitAmount:(NSString*)debitAmount;
 
 @end

@@ -10,14 +10,13 @@
 
 @implementation Transaction
 
-- (instancetype)  initWithEverything:(NSString *)date name:(NSString *)name location:(NSString *)location debitAmount:(NSString *)debitAmount
+- (instancetype)  initWithEverything:(NSString *)time nameAndLoc:(NSString *)nameAndLoc debitAmount:(NSString *)debitAmount
 {
     self = [super init];
     
     if(self) {
-        self.date = date;
-        self.name = name;
-        self.location = location;
+        self.time = time;
+        self.nameAndLocation = nameAndLoc;
         self.debitAmount = debitAmount;
     }
     
