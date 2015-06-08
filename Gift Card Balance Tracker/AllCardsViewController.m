@@ -19,7 +19,6 @@
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
-
 @end
 
 @implementation AllCardsViewController
@@ -186,6 +185,15 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     [self presentViewController:self.showBalance animated:YES completion:nil];
 }
 
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.giftCards removeObjectAtIndex:indexPath.row];
+        [self.allCardsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self saveCards];
+    }
+}
+
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
@@ -209,15 +217,6 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 - (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewCellEditingStyleDelete;
-}
-
-- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.giftCards removeObjectAtIndex:indexPath.row];
-        [self.allCardsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [self saveCards];
-    }
 }
 
 
