@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllCardsViewController">
             <connections>
                 <outlet property="allCardsTableView" destination="zcm-1y-qRb" id="Dv4-ab-WqB"/>
+                <outlet property="editButton" destination="hS6-mi-xUg" id="Miw-hM-FC3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,12 +22,12 @@
                         <navigationItem title="Debit Cards" id="Vn6-3O-STa">
                             <barButtonItem key="leftBarButtonItem" title="Edit" id="hS6-mi-xUg">
                                 <connections>
-                                    <action selector="editButton:" destination="-1" id="3So-ej-YXM"/>
+                                    <action selector="editButton:" destination="-1" id="5Cu-cT-KYC"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" title="Add" id="Z0j-F5-SKF">
                                 <connections>
-                                    <action selector="addButton:" destination="-1" id="3F1-7y-Awz"/>
+                                    <action selector="addButton:" destination="-1" id="i0M-8z-NQP"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>

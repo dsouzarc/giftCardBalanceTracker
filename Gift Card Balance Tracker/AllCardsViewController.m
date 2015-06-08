@@ -17,8 +17,8 @@
 @property (strong, nonatomic) ShowGiftCardBalanceViewController *showBalance;
 @property (strong, nonatomic) PQFCirclesInTriangle *loadingAnimation;
 
-- (IBAction)addButton:(id)sender;
-- (IBAction)editButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
+
 
 @end
 
@@ -69,7 +69,14 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 
 
 - (IBAction)editButton:(id)sender {
-    
+    if([self.allCardsTableView isEditing]) {
+        [self.allCardsTableView setEditing:NO animated:YES];
+        [self.editButton setTitle:@"Edit"];
+    }
+    else {
+        [self.editButton setTitle:@"Done"];
+        [self.allCardsTableView setEditing:YES animated:YES];
+    }
 }
 
 
@@ -179,6 +186,16 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     [self presentViewController:self.showBalance animated:YES completion:nil];
 }
 
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 72;
@@ -187,6 +204,20 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.giftCards.count;
+}
+
+- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.giftCards removeObjectAtIndex:indexPath.row];
+        [self.allCardsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self saveCards];
+    }
 }
 
 
