@@ -12,6 +12,7 @@
 
 @interface ShowGiftCardBalanceViewController : ViewController <UITableViewDataSource, UITableViewDataSource>
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil giftCard:(id<Card>)giftCard;
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+                        giftCard:(id<Card>)giftCard;
 
 @end

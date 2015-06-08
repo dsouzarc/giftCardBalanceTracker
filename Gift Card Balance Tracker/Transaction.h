@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *nameAndLocation;
 @property (strong, nonatomic) NSString *debitAmount;
 
-- (instancetype) initWithEverything:(NSString*)time nameAndLoc:(NSString*)nameAndLoc debitAmount:(NSString*)debitAmount;
+- (instancetype) initWithEverything:(NSString*)time nameAndLoc:(NSString*)nameAndLoc
+                        debitAmount:(NSString*)debitAmount;
 
 @end

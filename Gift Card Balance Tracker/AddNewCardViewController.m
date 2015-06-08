@@ -27,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //Remove keyboard when area outside textfield is tapped
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]
                                                     initWithTarget:self action:@selector(tapReceived:)];
     [tapGestureRecognizer setDelegate:self];
@@ -45,6 +46,7 @@
         self.bouncingBalls = [[PQFBouncingBalls alloc] initLoaderOnView:self.view];
         self.bouncingBalls.loaderColor = [UIColor blueColor];
     }
+    
     [self.bouncingBalls show];
     
     [NSURLConnection sendAsynchronousRequest:self.giftCard.generateBalanceURLRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
@@ -54,6 +56,7 @@
          //NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
          //NSLog(@"%@", string);
          
+         //Something goes wrong (like no Internet connection)
          if(error) {
              NSString *title = [self.giftCard hiddenCardNumberFormat];
              [self showAlert:title alertMessage:error.description buttonName:@"Ok"];
@@ -63,11 +66,20 @@
          NSString *startBalance = [self.giftCard startingBalance:data];
          NSString *currentBalance = [self.giftCard currentBalance:data];
          
+         //If we can't find a valid start or current balance
          if(!startBalance || startBalance.length <= 2 || currentBalance) {
-             self.addCardAlertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Information" message:@"It doesn't seem like we could find any debit card with that information. Would you like to add it anyway?" delegate:self cancelButtonTitle:@"I'll re-enter the information" otherButtonTitles:@"Add card anyway", nil];
+             
+             //Add the card anyway?
+             self.addCardAlertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Information"
+                                                                message:@"It doesn't seem like we could find any debit card with that information. Would you like to add it anyway?"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"I'll re-enter the information"
+                                                      otherButtonTitles:@"Add card anyway", nil];
              [self.addCardAlertView show];
              return;
          }
+         
+         //Found a valid balance
          else {
              [self addCard];
          }
@@ -77,7 +89,8 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(alertView == self.addCardAlertView) {
-        //Add card anyway
+        
+        //Add the card anyway
         if(buttonIndex == 1) {
             [self addCard];
         }

@@ -44,27 +44,24 @@ static NSString *transactionIdentifier = @"TransactionCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.transactionsTableView registerNib:[UINib nibWithNibName:@"TransactionTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:transactionIdentifier];
+    [self.transactionsTableView registerNib:[UINib nibWithNibName:@"TransactionTableViewCell"
+                                                           bundle:[NSBundle mainBundle]] forCellReuseIdentifier:transactionIdentifier];
     [self.giftCard transactions:self.giftCard.tempDataStore];
+
+    self.initialBalance.text = [self.giftCard startingBalance:self.giftCard.tempDataStore];
+    self.currentBalance.text = [self.giftCard currentBalance:self.giftCard.tempDataStore];
     
+    //Start off by hiding all the important information
     [self.cardNumber setTitle:[self.giftCard hiddenCardNumberFormat] forState:UIControlStateNormal];
     [self.expirationMonth setTitle:@"MM" forState:UIControlStateNormal];
     [self.expirationYear setTitle:@"YY" forState:UIControlStateNormal];
     [self.cvvCode setTitle:@"XXX" forState:UIControlStateNormal];
-    
-    self.initialBalance.text = [self.giftCard startingBalance:self.giftCard.tempDataStore];
-    self.currentBalance.text = [self.giftCard currentBalance:self.giftCard.tempDataStore];
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 140;
-}
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.transactions.count;
-}
+/****************************/
+//    TABLEVIEW DELEGATES
+/****************************/
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -86,7 +83,22 @@ static NSString *transactionIdentifier = @"TransactionCell";
     return cell;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 140;
+}
 
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.transactions.count;
+}
+
+
+/****************************/
+//    BUTTON CLICKS
+/****************************/
+
+/* Basically, if we're hiding the number, when we're tapped, show the number. If we're showing the number, when we're tapped, hide the number */
 - (IBAction)cvvCode:(id)sender {
     if([self.cvvCode.titleLabel.text isEqualToString:@"XXX"]) {
         [self.cvvCode setTitle:self.giftCard.cvvCode forState:UIControlStateNormal];

@@ -29,22 +29,7 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return self;
 }
 
-- (void) encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.cardNumber forKey:@"cardNumber"];
-    [aCoder encodeObject:self.expirMonth forKey:@"expirMonth"];
-    [aCoder encodeObject:self.expirYear forKey:@"expirYear"];
-    [aCoder encodeObject:self.cvvCode forKey:@"cvvCode"];
-}
-
-- (id) initWithCoder:(NSCoder *)aDecoder
-{
-    return [self initWithEverything:[aDecoder decodeObjectForKey:@"cardNumber"]
-                         expirMonth:[aDecoder decodeObjectForKey:@"expirMonth"]
-                          expirYear:[aDecoder decodeObjectForKey:@"expirYear"]
-                            cvvCode:[aDecoder decodeObjectForKey:@"cvvCode"]];
-}
-
+/* Get the current balance */
 - (NSString*) currentBalance:(NSData*)webPageData
 {
     TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
@@ -64,6 +49,7 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return @"";
 }
 
+/* Get the starting balance */
 - (NSString*) startingBalance:(NSData*)webPageData
 {
     TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
@@ -83,12 +69,14 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return @"";
 }
 
+/* Only shows the last 4 digits of the card */
 - (NSString*) hiddenCardNumberFormat
 {
     NSString *last4 = [self.cardNumber substringFromIndex:self.cardNumber.length - 4];
     return [NSString stringWithFormat:@"XXXX-XXXX-XXXX-%@", last4];
 }
 
+/* Basically, if we can find some information, it's valid */
 - (BOOL) isValidCard:(NSData *)webPageData
 {
     TFHpple *httpl = [[TFHpple alloc] initWithHTMLData:webPageData];
@@ -102,7 +90,7 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return YES;
 }
 
-
+/* Returns an array of transactions */
 - (NSMutableArray*) transactions:(NSData *)webPageData
 {
     NSMutableArray *transactions = [[NSMutableArray alloc] init];
@@ -129,13 +117,13 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
         if(debitAmount.length >= 2) {
             Transaction *transaction = [[Transaction alloc] initWithEverything:time nameAndLoc:place debitAmount:debitAmount];
             [transactions addObject:transaction];
-             NSLog(@"Yo: \t%@\t%@\t%@\t%@", time, place, debitAmount, creditAmount);
         }
     }
     
     return transactions;
 }
 
+/* Gets rid of all double spaces and strange punctuation */
 - (NSString*) nicelyFormattedString:(NSObject*)object
 {
     TFHppleElement *element = (TFHppleElement*)object;
@@ -148,22 +136,7 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return [words componentsJoinedByString:@""];
 }
 
-- (NSString*) generateRandomToken
-{
-    NSMutableString *token = [[NSMutableString alloc] initWithString:CSRF_TOKEN];
-    
-    //Change a few characters at random
-    for(int i = 0; i < 3; i++) {
-        NSInteger randomCharIndex = arc4random_uniform((int) token.length);
-        
-        NSRange rangeToReplace = NSMakeRange(randomCharIndex, 1);
-        
-        [token replaceCharactersInRange:rangeToReplace withString:[NSString stringWithFormat:@"%c", [self getRandomChar]]];
-    }
-    
-    return token;
-}
-
+/* Generaqtes the URL request to get the balance */
 - (NSURLRequest*) generateBalanceURLRequest
 {
     NSString *url = @"https://www.onevanilla.com/onevanilla/login.html";
@@ -204,8 +177,47 @@ static NSString const *CSRF_TOKEN = @"jxEwNYITEGXsNQ80bGHkOocCXrwHOOKa";
     return request;
 }
 
+/* Generates a random CSRF token by modifying it */
+- (NSString*) generateRandomToken
+{
+    NSMutableString *token = [[NSMutableString alloc] initWithString:CSRF_TOKEN];
+    
+    //Change a few characters at random
+    for(int i = 0; i < 3; i++) {
+        NSInteger randomCharIndex = arc4random_uniform((int) token.length);
+        
+        NSRange rangeToReplace = NSMakeRange(randomCharIndex, 1);
+        
+        [token replaceCharactersInRange:rangeToReplace withString:[NSString stringWithFormat:@"%c", [self getRandomChar]]];
+    }
+    
+    return token;
+}
+
+/* Returns a random lowercase character */
 - (char)getRandomChar {
     return (char) (arc4random_uniform(26) + 'a');
+}
+
+
+/****************************/
+//    NSCODING DELEGATES
+/****************************/
+
+- (void) encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.cardNumber forKey:@"cardNumber"];
+    [aCoder encodeObject:self.expirMonth forKey:@"expirMonth"];
+    [aCoder encodeObject:self.expirYear forKey:@"expirYear"];
+    [aCoder encodeObject:self.cvvCode forKey:@"cvvCode"];
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    return [self initWithEverything:[aDecoder decodeObjectForKey:@"cardNumber"]
+                         expirMonth:[aDecoder decodeObjectForKey:@"expirMonth"]
+                          expirYear:[aDecoder decodeObjectForKey:@"expirYear"]
+                            cvvCode:[aDecoder decodeObjectForKey:@"cvvCode"]];
 }
 
 @end

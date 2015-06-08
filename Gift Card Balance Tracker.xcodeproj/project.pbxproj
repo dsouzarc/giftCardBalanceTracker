@@ -139,28 +139,18 @@
 		94168CBB1B1FAE7300DEA70D /* Gift Card Balance Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				94BC6B3B1B250676004810AD /* PQFCustomLoaders */,
-				9421730C1B23791700ADD2B3 /* AddNewCardViewController.h */,
-				9421730D1B23791700ADD2B3 /* AddNewCardViewController.m */,
-				9421730E1B23791700ADD2B3 /* AddNewCardViewController.xib */,
-				94B7F55D1B21AD690018138D /* AllCardsViewController.h */,
-				94B7F55E1B21AD690018138D /* AllCardsViewController.m */,
-				94B7F55F1B21AD690018138D /* AllCardsViewController.xib */,
-				94168CE21B1FAED800DEA70D /* ShowGiftCardBalanceViewController.h */,
-				94168CEA1B1FC75000DEA70D /* ShowGiftCardViewController.m */,
-				94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */,
-				9421730B1B2378E200ADD2B3 /* Card Detail Cell */,
+				94BC6B4A1B250AF5004810AD /* Add New Card */,
+				94BC6B4B1B250AFE004810AD /* View All Cards */,
+				94BC6B4C1B250B09004810AD /* Show Balance and Transactions */,
 				942173091B2378BD00ADD2B3 /* Objects */,
 				94168CC01B1FAE7300DEA70D /* AppDelegate.h */,
 				94168CC11B1FAE7300DEA70D /* AppDelegate.m */,
+				94BC6B3B1B250676004810AD /* PQFCustomLoaders */,
 				9421730A1B2378CA00ADD2B3 /* Not Really Needed */,
 				94168D3E1B21018D00DEA70D /* HTML Parsing */,
 				94168CC91B1FAE7300DEA70D /* Images.xcassets */,
 				94168CCB1B1FAE7300DEA70D /* LaunchScreen.xib */,
 				94168CBC1B1FAE7300DEA70D /* Supporting Files */,
-				94BC6B351B24FC1E004810AD /* TransactionTableViewCell.h */,
-				94BC6B361B24FC1E004810AD /* TransactionTableViewCell.m */,
-				94BC6B371B24FC1E004810AD /* TransactionTableViewCell.xib */,
 			);
 			path = "Gift Card Balance Tracker";
 			sourceTree = "<group>";
@@ -208,10 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				94BC6B3A1B24FCF7004810AD /* Card.h */,
-				942173131B23A23000ADD2B3 /* Transaction.h */,
-				942173141B23A23000ADD2B3 /* Transaction.m */,
-				942173061B23744900ADD2B3 /* OneVanillaGiftCard.h */,
-				942173071B23744900ADD2B3 /* OneVanillaGiftCard.m */,
+				94BC6B4E1B250B35004810AD /* Transaction */,
+				94BC6B4F1B250B3D004810AD /* One Vanilla GiftCard */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -250,6 +238,66 @@
 				94BC6B421B250676004810AD /* PQFCustomLoaders.h */,
 			);
 			path = PQFCustomLoaders;
+			sourceTree = "<group>";
+		};
+		94BC6B4A1B250AF5004810AD /* Add New Card */ = {
+			isa = PBXGroup;
+			children = (
+				9421730C1B23791700ADD2B3 /* AddNewCardViewController.h */,
+				9421730D1B23791700ADD2B3 /* AddNewCardViewController.m */,
+				9421730E1B23791700ADD2B3 /* AddNewCardViewController.xib */,
+			);
+			name = "Add New Card";
+			sourceTree = "<group>";
+		};
+		94BC6B4B1B250AFE004810AD /* View All Cards */ = {
+			isa = PBXGroup;
+			children = (
+				94B7F55D1B21AD690018138D /* AllCardsViewController.h */,
+				94B7F55E1B21AD690018138D /* AllCardsViewController.m */,
+				94B7F55F1B21AD690018138D /* AllCardsViewController.xib */,
+				9421730B1B2378E200ADD2B3 /* Card Detail Cell */,
+			);
+			name = "View All Cards";
+			sourceTree = "<group>";
+		};
+		94BC6B4C1B250B09004810AD /* Show Balance and Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				94168CE21B1FAED800DEA70D /* ShowGiftCardBalanceViewController.h */,
+				94168CEA1B1FC75000DEA70D /* ShowGiftCardViewController.m */,
+				94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */,
+				94BC6B4D1B250B27004810AD /* Transaction Cell */,
+			);
+			name = "Show Balance and Transactions";
+			sourceTree = "<group>";
+		};
+		94BC6B4D1B250B27004810AD /* Transaction Cell */ = {
+			isa = PBXGroup;
+			children = (
+				94BC6B351B24FC1E004810AD /* TransactionTableViewCell.h */,
+				94BC6B361B24FC1E004810AD /* TransactionTableViewCell.m */,
+				94BC6B371B24FC1E004810AD /* TransactionTableViewCell.xib */,
+			);
+			name = "Transaction Cell";
+			sourceTree = "<group>";
+		};
+		94BC6B4E1B250B35004810AD /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				942173131B23A23000ADD2B3 /* Transaction.h */,
+				942173141B23A23000ADD2B3 /* Transaction.m */,
+			);
+			name = Transaction;
+			sourceTree = "<group>";
+		};
+		94BC6B4F1B250B3D004810AD /* One Vanilla GiftCard */ = {
+			isa = PBXGroup;
+			children = (
+				942173061B23744900ADD2B3 /* OneVanillaGiftCard.h */,
+				942173071B23744900ADD2B3 /* OneVanillaGiftCard.m */,
+			);
+			name = "One Vanilla GiftCard";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

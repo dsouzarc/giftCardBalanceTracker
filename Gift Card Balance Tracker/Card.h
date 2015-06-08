@@ -10,33 +10,40 @@
 #import <UIKit/UIKit.h>
 #import "Transaction.h"
 
+//Tag for saving cards
 static NSString *SAVED_CARDS = @"SAVED_CARDS";
 
 @protocol Card <NSObject, NSCoding>
 
-@required
-- (instancetype) initWithEverything:(NSString*)cardNumber expirMonth:(NSString*)expirMonth
-                          expirYear:(NSString*)expirYear cvvCode:(NSString*)cvvCode;
-
-- (id) initWithCoder:(NSCoder *)aDecoder;
-- (void) encodeWithCoder:(NSCoder *)aCoder;
-
-- (NSURLRequest*) generateBalanceURLRequest;
-
-- (BOOL) isValidCard:(NSData*)webPageData;
-- (NSString*) startingBalance:(NSData*)webPageData;
-- (NSString*) currentBalance:(NSData*)webPageData;
-- (NSMutableArray*) transactions:(NSData*)webPageData;
-- (NSString*) hiddenCardNumberFormat;
-
+//Required before creation (all should have this)
 @property (strong, nonatomic, readwrite) NSString *cardNumber;
 @property (strong, nonatomic, readwrite) NSString *expirMonth;
 @property (strong, nonatomic, readwrite) NSString *expirYear;
 @property (strong, nonatomic, readwrite) NSString *cvvCode;
 
+//Optional after instantiation
+@property (strong, nonatomic, readwrite) NSData *tempDataStore;
 @property (strong, nonatomic, readwrite) NSString *startingBalance;
 @property (strong, nonatomic, readwrite) NSString *currentBalance;
 
-@property (strong, nonatomic, readwrite) NSData *tempDataStore;
+- (instancetype) initWithEverything:(NSString*)cardNumber expirMonth:(NSString*)expirMonth
+                          expirYear:(NSString*)expirYear cvvCode:(NSString*)cvvCode;
+
+//Request to get the balance and transaction information
+- (NSURLRequest*) generateBalanceURLRequest;
+
+//Is the card valid
+- (BOOL) isValidCard:(NSData*)webPageData;
+
+- (NSString*) startingBalance:(NSData*)webPageData;
+- (NSString*) currentBalance:(NSData*)webPageData;
+- (NSMutableArray*) transactions:(NSData*)webPageData;
+
+//Hides the card number - optional format: XXXX-XXXX-XXXX-1234
+- (NSString*) hiddenCardNumberFormat;
+
+//NSCoding delegates
+- (id) initWithCoder:(NSCoder *)aDecoder;
+- (void) encodeWithCoder:(NSCoder *)aCoder;
 
 @end
