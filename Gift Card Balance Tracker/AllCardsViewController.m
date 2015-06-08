@@ -10,14 +10,16 @@
 
 @interface AllCardsViewController ()
 
-@property (strong, nonatomic) NSMutableArray *giftCards;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (strong, nonatomic) IBOutlet UITableView *allCardsTableView;
-@property (strong, nonatomic) AddNewCardViewController *addCardViewController;
+
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) ShowGiftCardBalanceViewController *showBalance;
 @property (strong, nonatomic) PQFCirclesInTriangle *loadingAnimation;
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
+@property (strong, nonatomic) AddNewCardViewController *addCardViewController;
+@property (strong, nonatomic) ShowGiftCardBalanceViewController *showBalance;
+
+@property (strong, nonatomic) NSMutableArray *giftCards;
 
 @end
 
@@ -36,14 +38,20 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     return self;
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self refreshGiftCards];
+}
+
 - (void)viewDidLoad {
+    [super viewDidLoad];
     
     //For the custom table view cell
     [self.allCardsTableView registerNib:[UINib nibWithNibName:@"BriefCardDetailTableViewCell"
                                                        bundle:[NSBundle mainBundle]] forCellReuseIdentifier:allCardsIdentifier];
     
     //Loading animation
-    self.loadingAnimation = [[PQFCirclesInTriangle alloc] initWithFrame:self.view.frame];
+    self.loadingAnimation = [[PQFCirclesInTriangle alloc] initLoaderOnView:self.view];
     self.loadingAnimation.loaderColor = [UIColor blueColor];
     self.loadingAnimation.borderWidth = 5.0;
     self.loadingAnimation.maxDiam = 200.0;
@@ -51,6 +59,7 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     if(self.giftCards.count > 0) {
         [self.loadingAnimation show];
     }
+    
 
     
     //Swipe to refresh
@@ -65,8 +74,6 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     UITableViewController *tableViewController = [[UITableViewController alloc] init];
     tableViewController.tableView = self.allCardsTableView;
     tableViewController.refreshControl = self.refreshControl;
-    
-    [super viewDidLoad];
 }
 
 
@@ -105,8 +112,10 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 /** When a new card is added from the view controller */
 - (void) addNewCardViewController:(AddNewCardViewController *)controller newCard:(id<Card>)newCard
 {
+    if(!self.giftCards) {
+        self.giftCards = [[NSMutableArray alloc] init];
+    }
     [self.giftCards addObject:newCard];
-    [self refreshGiftCards];
     [self saveCards];
 }
 
@@ -235,7 +244,10 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
     }
     [self.loadingAnimation show];
     [self.allCardsTableView reloadData];
-    [self.refreshControl endRefreshing];
+    
+    if(self.refreshControl.isRefreshing) {
+        [self.refreshControl endRefreshing];
+    }
 }
 
 - (void) showAlert:(NSString*)alertTitle alertMessage:(NSString*)alertMessage buttonName:(NSString*)buttonName {

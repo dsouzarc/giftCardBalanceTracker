@@ -89,9 +89,9 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(alertView == self.addCardAlertView) {
-        
+
         //Add the card anyway
-        if(buttonIndex == 1) {
+        if(buttonIndex == 1) {;
             [self addCard];
         }
     }
