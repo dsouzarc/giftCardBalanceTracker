@@ -34,6 +34,7 @@
 		94BC6B441B250676004810AD /* PQFBouncingBalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B3F1B250676004810AD /* PQFBouncingBalls.m */; };
 		94BC6B451B250676004810AD /* PQFCirclesInTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B411B250676004810AD /* PQFCirclesInTriangle.m */; };
 		94BC6B491B25083E004810AD /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B481B25083E004810AD /* UIColor+FlatColors.m */; };
+		94BC6B531B251CDF004810AD /* blackcard.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BC6B521B251CDF004810AD /* blackcard.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		94BC6B421B250676004810AD /* PQFCustomLoaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQFCustomLoaders.h; sourceTree = "<group>"; };
 		94BC6B471B25083E004810AD /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatColors.h"; path = "UIColor+FlatColors/UIColor+FlatColors.h"; sourceTree = "<group>"; };
 		94BC6B481B25083E004810AD /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatColors.m"; path = "UIColor+FlatColors/UIColor+FlatColors.m"; sourceTree = "<group>"; };
+		94BC6B521B251CDF004810AD /* blackcard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackcard.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				9421730A1B2378CA00ADD2B3 /* Not Really Needed */,
 				94168D3E1B21018D00DEA70D /* HTML Parsing */,
 				94168CC91B1FAE7300DEA70D /* Images.xcassets */,
+				94BC6B521B251CDF004810AD /* blackcard.png */,
 				94168CCB1B1FAE7300DEA70D /* LaunchScreen.xib */,
 				94168CBC1B1FAE7300DEA70D /* Supporting Files */,
 			);
@@ -388,6 +391,7 @@
 				94168CCD1B1FAE7300DEA70D /* LaunchScreen.xib in Resources */,
 				94BC6B391B24FC1E004810AD /* TransactionTableViewCell.xib in Resources */,
 				94168CCA1B1FAE7300DEA70D /* Images.xcassets in Resources */,
+				94BC6B531B251CDF004810AD /* blackcard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
