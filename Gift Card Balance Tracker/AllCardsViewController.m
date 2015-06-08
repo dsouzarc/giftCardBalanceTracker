@@ -43,11 +43,14 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
                                                        bundle:[NSBundle mainBundle]] forCellReuseIdentifier:allCardsIdentifier];
     
     //Loading animation
-    self.loadingAnimation = [[PQFCirclesInTriangle alloc] initLoaderOnView:self.view];
+    self.loadingAnimation = [[PQFCirclesInTriangle alloc] initWithFrame:self.view.frame];
     self.loadingAnimation.loaderColor = [UIColor blueColor];
     self.loadingAnimation.borderWidth = 5.0;
     self.loadingAnimation.maxDiam = 200.0;
-    [self.loadingAnimation show];
+    
+    if(self.giftCards.count > 0) {
+        [self.loadingAnimation show];
+    }
 
     
     //Swipe to refresh
@@ -226,6 +229,10 @@ static NSString *allCardsIdentifier = @"BriefCardDetailCell";
 
 - (void) refreshGiftCards
 {
+    if(self.giftCards.count == 0) {
+        [self.refreshControl endRefreshing];
+        return;
+    }
     [self.loadingAnimation show];
     [self.allCardsTableView reloadData];
     [self.refreshControl endRefreshing];
