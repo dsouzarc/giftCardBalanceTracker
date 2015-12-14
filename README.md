@@ -17,20 +17,29 @@ Currently, the app only works for Vanilla One Visa Giftcards, but other cards ca
 
 ![Screenshot 0](https://github.com/dsouzarc/giftCardBalanceTracker/blob/master/Screenshots/Screenshot_0.png)
 
+View all your giftcards - their starting and current balance
+
 ---
 
 ![Screenshot 1](https://github.com/dsouzarc/giftCardBalanceTracker/blob/master/Screenshots/Screenshot_1.png)
+
+Option to delete and add giftcards
 
 ---
 
 ![Screenshot 2](https://github.com/dsouzarc/giftCardBalanceTracker/blob/master/Screenshots/Screenshot_2.png)
 
+UI to add a new card
+
 ---
 
 ![Screenshot 3](https://github.com/dsouzarc/giftCardBalanceTracker/blob/master/Screenshots/Screenshot_3.png)
 
+View a gift card's details; shows initial and current balance, card number, CVV code, expiration month and year, and recent purchases: transaction name, type, and amount
+
 ---
 
 ![Screenshot 4](https://github.com/dsouzarc/giftCardBalanceTracker/blob/master/Screenshots/Screenshot_4.png)
+Tapping the blue XXs (ie. the "MM" under "Exp. Year") reveals the true value
 
 ---
