@@ -39,6 +39,7 @@ View a gift card's details; shows initial and current balance, card number, CVV 
 
 ---
 
+
 ![Screenshot 4](https://github.com/dsouzarc/giftCardBalanceTracker/blob/master/Screenshots/Screenshot_4.png)
 Tapping the blue XXs (ie. the "MM" under "Exp. Year") reveals the true value
 
