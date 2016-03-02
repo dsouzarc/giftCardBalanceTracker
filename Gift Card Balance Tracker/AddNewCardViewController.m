@@ -53,8 +53,8 @@
      {
          [self.bouncingBalls hide];
          
-         //NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-         //NSLog(@"%@", string);
+         NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+         NSLog(@"%@", string);
          
          //Something goes wrong (like no Internet connection)
          if(error) {

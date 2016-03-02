@@ -16,7 +16,6 @@
 		94168CD91B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CD81B1FAE7300DEA70D /* Gift_Card_Balance_TrackerTests.m */; };
 		94168CE61B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */; };
 		94168CEB1B1FC75000DEA70D /* ShowGiftCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168CEA1B1FC75000DEA70D /* ShowGiftCardViewController.m */; };
-		94168CF91B20FD3100DEA70D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94168CF81B20FD3100DEA70D /* libxml2.dylib */; };
 		94168D3B1B21017E00DEA70D /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168D361B21017E00DEA70D /* TFHpple.m */; };
 		94168D3C1B21017E00DEA70D /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168D381B21017E00DEA70D /* TFHppleElement.m */; };
 		94168D3D1B21017E00DEA70D /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 94168D3A1B21017E00DEA70D /* XPathQuery.m */; };
@@ -35,6 +34,7 @@
 		94BC6B451B250676004810AD /* PQFCirclesInTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B411B250676004810AD /* PQFCirclesInTriangle.m */; };
 		94BC6B491B25083E004810AD /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC6B481B25083E004810AD /* UIColor+FlatColors.m */; };
 		94BC6B531B251CDF004810AD /* blackcard.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BC6B521B251CDF004810AD /* blackcard.png */; };
+		94D750311C8631C200743A76 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D750301C8631C200743A76 /* libxml2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		94168CE21B1FAED800DEA70D /* ShowGiftCardBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowGiftCardBalanceViewController.h; sourceTree = "<group>"; };
 		94168CE41B1FAED800DEA70D /* ShowGiftCardBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowGiftCardBalanceViewController.xib; sourceTree = "<group>"; };
 		94168CEA1B1FC75000DEA70D /* ShowGiftCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowGiftCardViewController.m; sourceTree = "<group>"; };
-		94168CF81B20FD3100DEA70D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		94168D351B21017E00DEA70D /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		94168D361B21017E00DEA70D /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
 		94168D371B21017E00DEA70D /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		94BC6B471B25083E004810AD /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatColors.h"; path = "UIColor+FlatColors/UIColor+FlatColors.h"; sourceTree = "<group>"; };
 		94BC6B481B25083E004810AD /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatColors.m"; path = "UIColor+FlatColors/UIColor+FlatColors.m"; sourceTree = "<group>"; };
 		94BC6B521B251CDF004810AD /* blackcard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackcard.png; sourceTree = "<group>"; };
+		94D750301C8631C200743A76 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94168CF91B20FD3100DEA70D /* libxml2.dylib in Frameworks */,
+				94D750311C8631C200743A76 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +122,7 @@
 		94168CB01B1FAE7300DEA70D = {
 			isa = PBXGroup;
 			children = (
-				94168CF81B20FD3100DEA70D /* libxml2.dylib */,
+				94D750301C8631C200743A76 /* libxml2.tbd */,
 				94168CBB1B1FAE7300DEA70D /* Gift Card Balance Tracker */,
 				94168CD51B1FAE7300DEA70D /* Gift Card Balance TrackerTests */,
 				94168CBA1B1FAE7300DEA70D /* Products */,
